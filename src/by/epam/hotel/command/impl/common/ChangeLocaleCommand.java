@@ -23,7 +23,9 @@ public class ChangeLocaleCommand implements ActionCommand {
 		SessionData sessionData = (SessionData) session.getAttribute(AttributeConstant.SESSION_DATA);
 		sessionData.setLocale(locale);
 		String jspuripath = request.getParameter(ParameterConstant.JSP_PATH);
-		String page = jspuripath.substring(7);
+		System.out.println(jspuripath);
+		int rightPathPosition = (jspuripath.indexOf("/", 1));
+		String page = jspuripath.substring(rightPathPosition);
 		Router router = new Router();
 		router.setType(RouterType.FORWARD);
 		router.setPage(page);
