@@ -20,9 +20,21 @@
 </head>
 <body>
 <jsp:include page="/locale" />
-	<br />
 	<hr />
 <jsp:include page="/loginlogout" />
+	<hr />
+	<form action="${pageContext.request.contextPath}/controller" method="post">
+	<input type="hidden" name="command" value="to_all_accounts" /> 
+    <input type="hidden" name="currentPage" value="1">
+    <label for="records"><fmt:message key="selectrpp" />:</label>
+    <select name="recordsPerPage" onselect="" onchange="this.form.submit()">
+    	<option value="${sessionData.recordsPerPage }">${sessionData.recordsPerPage }</option>  
+        <option value="5">5</option> 
+        <option value="10">10</option>
+        <option value="15">15</option>
+    </select>
+    <%-- <input type="submit" value="<fmt:message key="submit" />" /> --%>
+	</form>
 	<hr />
   <c:choose>
 		<c:when test="${fn:length(sessionData.accountList)==0}">

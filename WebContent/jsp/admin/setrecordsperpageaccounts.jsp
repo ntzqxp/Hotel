@@ -16,12 +16,12 @@
 	<input type="hidden" name="command" value="to_all_accounts" /> 
     <input type="hidden" name="currentPage" value="1">
     <label for="records"><fmt:message key="selectrpp" />:</label>
-    <select name="recordsPerPage"> 
+    <select name="recordsPerPage" onchange="this.form.submit()"> 
         <option value="5">5</option> 
         <option value="10" selected>10</option>
         <option value="15">15</option>
     </select>
-    <input type="submit" value="<fmt:message key="submit" />" />
+    <%-- <input type="submit" value="<fmt:message key="submit" />" /> --%>
 </form>
 <hr/>
 	<form action="${pageContext.request.contextPath}/controller"
