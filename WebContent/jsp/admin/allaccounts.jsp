@@ -24,16 +24,15 @@
 <jsp:include page="/loginlogout" />
 	<hr />
 	<form action="${pageContext.request.contextPath}/controller" method="post">
-	<input type="hidden" name="command" value="to_all_accounts" /> 
-    <input type="hidden" name="currentPage" value="1">
-    <label for="records"><fmt:message key="selectrpp" />:</label>
-    <select name="recordsPerPage" onselect="" onchange="this.form.submit()">
-    	<option value="${sessionData.recordsPerPage }">${sessionData.recordsPerPage }</option>  
-        <option value="5">5</option> 
-        <option value="10">10</option>
-        <option value="15">15</option>
-    </select>
-    <%-- <input type="submit" value="<fmt:message key="submit" />" /> --%>
+		<input type="hidden" name="command" value="to_all_accounts" /> 
+	    <input type="hidden" name="currentPage" value="1">
+	    <label for="records"><fmt:message key="selectrpp" />:</label>
+	    <select id="recordsPerPageId" name="recordsPerPage" onchange="this.form.submit();" >
+	        <option value="5">5</option> 
+	        <option value="10">10</option>
+	        <option value="15">15</option>
+	    </select>
+	    <script>document.getElementById("recordsPerPageId").value = "${sessionData.recordsPerPage}";</script>  
 	</form>
 	<hr />
   <c:choose>
