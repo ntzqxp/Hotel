@@ -48,7 +48,7 @@ public class Runner {
 		List<Room> rooms = null;
 		
 		
-		System.out.println(Encoder.encodePassword("user", "2"));
+		System.out.println(Encoder.encodePassword("admin", "1"));
 
 		/*NationalityDao nationalityDao = new NationalityDao();
 		try (TransactionHelper helper = new TransactionHelper()) {

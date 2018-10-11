@@ -2,8 +2,6 @@ package by.epam.hotel.command.impl.client;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -19,10 +17,10 @@ import by.epam.hotel.exception.ServiceException;
 import by.epam.hotel.service.ClientService;
 import by.epam.hotel.util.ConfigurationManager;
 import by.epam.hotel.util.MessageManager;
+import by.epam.hotel.util.Validator;
 import by.epam.hotel.util.constant.AttributeConstant;
 import by.epam.hotel.util.constant.ParameterConstant;
 import by.epam.hotel.util.constant.PropertyConstant;
-import by.epam.hotel.util.constant.ValidationConstant;
 import by.epam.hotel.util.type.RoleType;
 import by.epam.hotel.util.type.RouterType;
 
@@ -83,79 +81,37 @@ public class FindRoomCommand implements ActionCommand {
 	private boolean validateInputData(String fname, String lname, String passport, String nationality,
 			List<Nationality> nationalities, String capacity, String from, String to, HttpServletRequest request, SessionData sessionData) {
 		boolean result = true;
-		if (!validateFName(fname)) {
+		if (!Validator.validateFName(fname)) {
 			request.setAttribute(AttributeConstant.ERROR_FIRST_NAME_MESSAGE,
 					MessageManager.getProrerty(PropertyConstant.MESSAGE_FIRST_NAME_ERROR, sessionData.getLocale()));
 			result = false;
 		}
-		if (!validateLName(lname)) {
+		if (!Validator.validateLName(lname)) {
 			request.setAttribute(AttributeConstant.ERROR_LAST_NAME_MESSAGE,
 					MessageManager.getProrerty(PropertyConstant.MESSAGE_LAST_NAME_ERROR, sessionData.getLocale()));
 			result = false;
 		}
-		if (!validatePassport(passport)) {
+		if (!Validator.validatePassport(passport)) {
 			request.setAttribute(AttributeConstant.ERROR_PASSPORT_MESSAGE,
 					MessageManager.getProrerty(PropertyConstant.MESSAGE_PASSPORT_ERROR, sessionData.getLocale()));
 			result = false;
 		}
-		if (!validateNationality(nationality, nationalities)) {
+		if (!Validator.validateNationality(nationality, nationalities)) {
 			request.setAttribute(AttributeConstant.ERROR_NATIONALITY_MESSAGE,
 					MessageManager.getProrerty(PropertyConstant.MESSAGE_NATIONALITY_ERROR, sessionData.getLocale()));
 			result = false;
 		}
-		if (!validateCapacity(capacity)) {
+		if (!Validator.validateNumber(capacity)) {
 			request.setAttribute(AttributeConstant.ERROR_CAPACITY_MESSAGE,
 					MessageManager.getProrerty(PropertyConstant.MESSAGE_CAPACITY_ERROR, sessionData.getLocale()));
 			result = false;
 		}
-		if (!validateFromTo(from, to)) {
+		if (!Validator.validateFromTo(from, to)) {
 			request.setAttribute(AttributeConstant.ERROR_FROM_TO_MESSAGE,
 					MessageManager.getProrerty(PropertyConstant.MESSAGE_FROM_TO_ERROR, sessionData.getLocale()));
 			result = false;
 		}
 		return result;
-	}
-
-	private boolean validateFName(String fname) {
-		Pattern pattern = Pattern.compile(ValidationConstant.FIRST_NAME_PATTERN);
-		Matcher matcher = pattern.matcher(fname);
-		return matcher.matches();
-	}
-
-	private boolean validateLName(String lname) {
-		Pattern pattern = Pattern.compile(ValidationConstant.LAST_NAME_PATTERN);
-		Matcher matcher = pattern.matcher(lname);
-		return matcher.matches();
-	}
-
-	private boolean validatePassport(String passport) {
-		Pattern pattern = Pattern.compile(ValidationConstant.PASSPORT_PATTERN);
-		Matcher matcher = pattern.matcher(passport);
-		return matcher.matches();
-	}
-
-	private boolean validateNationality(String tempNationalityId, List<Nationality> nationalities) {
-		for (Nationality nationality : nationalities) {
-			if (nationality.getCountryId().equals(tempNationalityId)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	private boolean validateCapacity(String capacity) {
-		Pattern pattern = Pattern.compile(ValidationConstant.CAPACITY_PATTERN);
-		Matcher matcher = pattern.matcher(capacity);
-		return matcher.matches();
-	}
-
-	private boolean validateFromTo(String from, String to) {
-		if (ValidationConstant.EMPTY_STRING.equals(from) || ValidationConstant.EMPTY_STRING.equals(to)) {
-			return false;
-		}
-		LocalDate localDateFrom = LocalDate.parse(from);
-		LocalDate localDateTo = LocalDate.parse(to);
-		return (localDateFrom.isAfter(LocalDate.now())||localDateFrom.isEqual(LocalDate.now())) && (localDateFrom.isEqual(localDateTo)||localDateTo.isAfter(localDateFrom));
 	}
 
 }

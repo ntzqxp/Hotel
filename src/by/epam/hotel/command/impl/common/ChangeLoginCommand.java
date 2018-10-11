@@ -1,8 +1,5 @@
 package by.epam.hotel.command.impl.common;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -14,10 +11,10 @@ import by.epam.hotel.exception.ServiceException;
 import by.epam.hotel.service.CommonService;
 import by.epam.hotel.util.ConfigurationManager;
 import by.epam.hotel.util.MessageManager;
+import by.epam.hotel.util.Validator;
 import by.epam.hotel.util.constant.AttributeConstant;
 import by.epam.hotel.util.constant.ParameterConstant;
 import by.epam.hotel.util.constant.PropertyConstant;
-import by.epam.hotel.util.constant.ValidationConstant;
 import by.epam.hotel.util.type.RoleType;
 import by.epam.hotel.util.type.RouterType;
 
@@ -33,7 +30,7 @@ public class ChangeLoginCommand implements ActionCommand {
 			String newLogin = request.getParameter(ParameterConstant.NEW_LOGIN);
 			String tempPassword = request.getParameter(ParameterConstant.PASSWORD);
 			String currentLogin = sessionData.getLogin();
-			if (validateLogin(newLogin)) {
+			if (Validator.validateLogin(newLogin)) {
 				try {
 					if (CommonService.checkLogin(currentLogin, tempPassword)) {
 						if (CommonService.changeLogin(newLogin, currentLogin, tempPassword)) {
@@ -68,12 +65,6 @@ public class ChangeLoginCommand implements ActionCommand {
 		}
 		router.setPage(page);
 		return router;
-	}
-
-	private boolean validateLogin(String login) {
-		Pattern pattern = Pattern.compile(ValidationConstant.LOGIN_PATTERN);
-		Matcher matcher = pattern.matcher(login);
-		return matcher.matches();
 	}
 
 }

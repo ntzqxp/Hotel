@@ -3,8 +3,6 @@ package by.epam.hotel.command.impl.admin;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.ParseException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -18,6 +16,7 @@ import by.epam.hotel.exception.ServiceException;
 import by.epam.hotel.service.AdminService;
 import by.epam.hotel.util.ConfigurationManager;
 import by.epam.hotel.util.MessageManager;
+import by.epam.hotel.util.Validator;
 import by.epam.hotel.util.constant.AttributeConstant;
 import by.epam.hotel.util.constant.ParameterConstant;
 import by.epam.hotel.util.constant.PropertyConstant;
@@ -76,48 +75,22 @@ public class CreateRoomCommand implements ActionCommand{
 	private boolean validateInputData(String number, String capacity, String price, HttpServletRequest request, SessionData sessionData) {
 		boolean result = true;
 		
-		if (!validateNumber(number)) {
+		if (!Validator.validateNumber(number)) {
 			request.setAttribute(AttributeConstant.ERROR_NUMBER_MESSAGE, 
 					MessageManager.getProrerty(PropertyConstant.MESSAGE_NUMBER_ERROR, sessionData.getLocale()));
 			result = false;
 		}
-		if (!validateCapacity(capacity)) {
+		if (!Validator.validateNumber(capacity)) {
 			request.setAttribute(AttributeConstant.ERROR_CAPACITY_MESSAGE,
 					MessageManager.getProrerty(PropertyConstant.MESSAGE_CAPACITY_ERROR, sessionData.getLocale()));
 			result = false;
 		}
-		if (!validatePrice(price)) {
+		if (!Validator.validateCurrency(price)) {
 			request.setAttribute(AttributeConstant.WRONG_INPUT_AMOUNT,
 					MessageManager.getProrerty(PropertyConstant.MESSAGE_INPUT_AMOUNT_ERROR, sessionData.getLocale()));
 			result = false;
 		}
 		return result;
-	}
-	
-	private boolean validateNumber(String number) {
-		boolean flag = false;
-		Pattern pattern = Pattern.compile(ValidationConstant.NUMBER_PATTERN);
-		Matcher matcher = pattern.matcher(number);
-		if(matcher.matches()) {
-			flag = Integer.parseInt(number)<=65535;
-		}
-		return flag;
-	}
-	
-	private boolean validateCapacity(String capacity) {
-		boolean flag = false;
-		Pattern pattern = Pattern.compile(ValidationConstant.CAPACITY_PATTERN);
-		Matcher matcher = pattern.matcher(capacity);
-		if(matcher.matches()) {
-			flag = Integer.parseInt(capacity)<=65535;
-		}
-		return flag;
-	}
-	
-	private boolean validatePrice(String price) {
-		Pattern pattern = Pattern.compile(ValidationConstant.PRICE_PATTERN);
-		Matcher matcher = pattern.matcher(price);
-		return matcher.matches();
 	}
 	
 	private BigDecimal parseToBigDecimal (String price) throws ParseException {

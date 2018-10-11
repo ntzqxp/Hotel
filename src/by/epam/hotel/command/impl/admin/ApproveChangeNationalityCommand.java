@@ -1,8 +1,6 @@
 package by.epam.hotel.command.impl.admin;
 
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -16,10 +14,10 @@ import by.epam.hotel.exception.ServiceException;
 import by.epam.hotel.service.AdminService;
 import by.epam.hotel.util.ConfigurationManager;
 import by.epam.hotel.util.MessageManager;
+import by.epam.hotel.util.Validator;
 import by.epam.hotel.util.constant.AttributeConstant;
 import by.epam.hotel.util.constant.ParameterConstant;
 import by.epam.hotel.util.constant.PropertyConstant;
-import by.epam.hotel.util.constant.ValidationConstant;
 import by.epam.hotel.util.type.RoleType;
 import by.epam.hotel.util.type.RouterType;
 
@@ -36,7 +34,7 @@ public class ApproveChangeNationalityCommand implements ActionCommand{
 			String country = request.getParameter(ParameterConstant.COUNTRY);
 			int recordsPerPage = sessionData.getRecordsPerPage();
 			int currentPage = sessionData.getCurrentPage();
-			if(validateCountry(country)) {
+			if(Validator.validateCountry(country)) {
 					Nationality updatedNationality = new Nationality(countryId, country);
 					try {
 						if(AdminService.approveChangeNationality(updatedNationality)) {
@@ -66,12 +64,6 @@ public class ApproveChangeNationalityCommand implements ActionCommand{
 		}
 		router.setPage(page);
 		return router;
-	}
-	
-	private boolean validateCountry(String country) {
-		Pattern pattern = Pattern.compile(ValidationConstant.COUNTRY_PATTERN);
-		Matcher matcher = pattern.matcher(country);
-		return matcher.matches();
 	}
 
 }

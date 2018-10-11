@@ -3,8 +3,6 @@ package by.epam.hotel.command.impl.client;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.ParseException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -17,6 +15,7 @@ import by.epam.hotel.exception.ServiceException;
 import by.epam.hotel.service.ClientService;
 import by.epam.hotel.util.ConfigurationManager;
 import by.epam.hotel.util.MessageManager;
+import by.epam.hotel.util.Validator;
 import by.epam.hotel.util.constant.AttributeConstant;
 import by.epam.hotel.util.constant.ParameterConstant;
 import by.epam.hotel.util.constant.PropertyConstant;
@@ -33,7 +32,7 @@ public class ReplenishCommand implements ActionCommand{
 		SessionData sessionData = (SessionData) session.getAttribute(AttributeConstant.SESSION_DATA);
 		if (sessionData.getRole() == RoleType.CLIENT) {
 			String replenishAmount = request.getParameter(ParameterConstant.REPLENISH_AMOUNT);
-			if(validateInputAmount(replenishAmount)) {
+			if(Validator.validateCurrency(replenishAmount)) {
 				try {
 					BigDecimal currentAmount = sessionData.getCurrentAmount();
 					BigDecimal bigDecimalReplenishAmount = parseToBigDecimal(replenishAmount);
@@ -67,12 +66,6 @@ public class ReplenishCommand implements ActionCommand{
 		}
 		router.setPage(page);
 		return router;	
-	}
-
-	private boolean validateInputAmount(String replenishAmount) {
-		Pattern pattern = Pattern.compile(ValidationConstant.PRICE_PATTERN);
-		Matcher matcher = pattern.matcher(replenishAmount);
-		return matcher.matches();
 	}
 	
 	private BigDecimal parseToBigDecimal (String number) throws ParseException {

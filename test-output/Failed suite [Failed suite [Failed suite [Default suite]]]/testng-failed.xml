@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Failed suite [Failed suite [Failed suite [Default suite]]]]">
+  <test thread-count="5" name="Default test(failed)(failed)(failed)(failed)">
+    <classes>
+      <class name="by.epam.hotel.util.ValidatorTest">
+        <methods>
+          <include name="afterClass"/>
+          <include name="afterTest"/>
+          <include name="beforeTest"/>
+          <include name="afterSuite"/>
+          <include name="beforeSuite"/>
+          <include name="validatePasswordPositiveTest" invocation-numbers="0"/>
+          <include name="afterMethod"/>
+          <include name="beforeClass"/>
+          <include name="beforeMethod"/>
+        </methods>
+      </class> <!-- by.epam.hotel.util.ValidatorTest -->
+    </classes>
+  </test> <!-- Default test(failed)(failed)(failed)(failed) -->
+</suite> <!-- Failed suite [Failed suite [Failed suite [Failed suite [Default suite]]]] -->

@@ -1,8 +1,5 @@
 package by.epam.hotel.command.impl.admin;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -15,10 +12,10 @@ import by.epam.hotel.exception.ServiceException;
 import by.epam.hotel.service.AdminService;
 import by.epam.hotel.util.ConfigurationManager;
 import by.epam.hotel.util.MessageManager;
+import by.epam.hotel.util.Validator;
 import by.epam.hotel.util.constant.AttributeConstant;
 import by.epam.hotel.util.constant.ParameterConstant;
 import by.epam.hotel.util.constant.PropertyConstant;
-import by.epam.hotel.util.constant.ValidationConstant;
 import by.epam.hotel.util.type.RoleType;
 import by.epam.hotel.util.type.RouterType;
 
@@ -32,7 +29,7 @@ public class CreateClassCommand implements ActionCommand{
 		SessionData sessionData = (SessionData) session.getAttribute(AttributeConstant.SESSION_DATA);
 		if (sessionData.getRole() == RoleType.ADMIN) {
 			String classId = request.getParameter(ParameterConstant.CLASS_ID);
-			if(validateClassId(classId)) {
+			if(Validator.validateClassId(classId)) {
 				RoomClass newRoomClass = new RoomClass(classId);
 				try {
 					if(AdminService.createRoomClass(newRoomClass)) {
@@ -59,12 +56,6 @@ public class CreateClassCommand implements ActionCommand{
 		}
 		router.setPage(page);
 		return router;
-	}
-	
-	private boolean validateClassId(String classId) {
-		Pattern pattern = Pattern.compile(ValidationConstant.CLASS_ID_PATTERN);
-		Matcher matcher = pattern.matcher(classId);
-		return matcher.matches();
 	}
 	
 }
