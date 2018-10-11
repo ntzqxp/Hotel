@@ -24,8 +24,20 @@
 	<hr />
 <jsp:include page="/loginlogout" />
 	<hr /> 
+	<form action="${pageContext.request.contextPath}/controller" method="post">
+		<input type="hidden" name="command" value="to_account_orders" /> 
+	    <input type="hidden" name="currentPage" value="1">
+	    <label for="records"><fmt:message key="selectrpp" />:</label>
+	    <select id="recordsPerPageId" name="recordsPerPage" onchange="this.form.submit();" >
+	        <option value="5">5</option> 
+	        <option value="10">10</option>
+	        <option value="15">15</option>
+	    </select>
+	    <script>document.getElementById("recordsPerPageId").value = "${sessionData.recordsPerPage}";</script>  
+	</form>
+	<hr />
   <c:choose>
-		<c:when test="${fn:length(sessionData.listAccountFullInfoOrder)==0}">
+		<c:when test="${fn:length(sesssionData.listAccountFullInfoOrder)==0}">
 			<fmt:message key="noordersmsg" />
 		</c:when>
 		<c:otherwise>

@@ -24,6 +24,18 @@
 	<hr />
 <jsp:include page="/loginlogout" />
 	<hr />
+	<form action="${pageContext.request.contextPath}/controller" method="post">
+		<input type="hidden" name="command" value="to_all_nationalities" /> 
+	    <input type="hidden" name="currentPage" value="1">
+	    <label for="records"><fmt:message key="selectrpp" />:</label>
+	    <select id="recordsPerPageId" name="recordsPerPage" onchange="this.form.submit();" >
+	        <option value="5">5</option> 
+	        <option value="10">10</option>
+	        <option value="15">15</option>
+	    </select>
+	    <script>document.getElementById("recordsPerPageId").value = "${sessionData.recordsPerPage}";</script>  
+	</form>
+	<hr />
   <c:choose>
 		<c:when test="${fn:length(sessionData.nationalityList)==0}">
 			<fmt:message key="nonationalitymessage" />

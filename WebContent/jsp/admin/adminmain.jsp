@@ -21,12 +21,16 @@
 	
 	<hr />
 	<form action="${pageContext.request.contextPath}/controller" method="post">
-		<input type="hidden" name="command" value="to_set_records_per_page_order" /> 
+		<input type="hidden" name="command" value="to_all_orders" /> 
+		<input type="hidden" name="currentPage" value="1">
+	    <input type="hidden" name="recordsPerPage" value="10">
 		<input type="submit" value="<fmt:message key="orders" />" />
 	</form>
 	<hr />
 	<form action="${pageContext.request.contextPath}/controller" method="post">
-		<input type="hidden" name="command" value="to_set_records_per_page_client" /> 
+		<input type="hidden" name="command" value="to_all_clients" /> 
+		<input type="hidden" name="currentPage" value="1">
+	    <input type="hidden" name="recordsPerPage" value="10">
 		<input type="submit" value="<fmt:message key="clients" />" />
 	</form>
 	<hr />
@@ -49,7 +53,6 @@
 		<input type="hidden" name="command" value="to_all_accounts" /> 
 	    <input type="hidden" name="currentPage" value="1">
 	    <input type="hidden" name="recordsPerPage" value="10">
-		<!-- <input type="hidden" name="command" value="to_set_records_per_page_account" />  -->
 		<input type="submit" value="<fmt:message key="accounts" />" />
 	</form>
 	<hr />
@@ -61,7 +64,9 @@
 	<hr />
 	</c:if>
 	<form action="${pageContext.request.contextPath}/controller" method="post">
-		<input type="hidden" name="command" value="to_set_records_per_page_email" /> 
+		<input type="hidden" name="command" value="to_all_emails" /> 
+		<input type="hidden" name="currentPage" value="1">
+	    <input type="hidden" name="recordsPerPage" value="10">
 		<input type="submit" value="<fmt:message key="sendmessage" />" />
 	</form>
 </body>

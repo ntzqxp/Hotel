@@ -13,7 +13,9 @@
 	<hr />
 	<form action="${pageContext.request.contextPath}/controller"
 		method="post">
-		<input type="hidden" name="command" value="to_set_records_per_page_class" />
+		<input type="hidden" name="command" value="to_all_classes" />
+		<input type="hidden" name="currentPage" value="1">
+	    <input type="hidden" name="recordsPerPage" value="10">
 		<input type="submit" value="<fmt:message key="allclasses" />" size="20" />
 	</form>
 	<hr/>

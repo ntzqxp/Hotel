@@ -35,16 +35,9 @@ import by.epam.hotel.command.impl.admin.ToAllRoomsCommand;
 import by.epam.hotel.command.impl.admin.ToCreateClassCommand;
 import by.epam.hotel.command.impl.admin.ToCreateNationalityCommand;
 import by.epam.hotel.command.impl.admin.ToCreateRoomCommand;
-import by.epam.hotel.command.impl.admin.ToSetRecordsPerPageAccountCommand;
-import by.epam.hotel.command.impl.admin.ToSetRecordsPerPageClassCommand;
 import by.epam.hotel.command.impl.admin.ToAdminRoomsCommand;
 import by.epam.hotel.command.impl.admin.ToAllAccountsCommand;
 import by.epam.hotel.command.impl.admin.ToAllClassesCommand;
-import by.epam.hotel.command.impl.admin.ToSetRecordsPerPageClientCommand;
-import by.epam.hotel.command.impl.admin.ToSetRecordsPerPageEmailCommand;
-import by.epam.hotel.command.impl.admin.ToSetRecordsPerPageOrderCommand;
-import by.epam.hotel.command.impl.admin.ToSetRecordsPerPageRoomCommand;
-import by.epam.hotel.command.impl.admin.ToSetRecordsPerPageNationalityCommand;
 import by.epam.hotel.command.impl.client.ApproveOrderCancelCommand;
 import by.epam.hotel.command.impl.client.BackToAccountOrdersCommand;
 import by.epam.hotel.command.impl.client.BackToChangePersonalDataCommand;
@@ -63,7 +56,6 @@ import by.epam.hotel.command.impl.client.ReplenishCommand;
 import by.epam.hotel.command.impl.client.ToAccountOrdersCommand;
 import by.epam.hotel.command.impl.client.ToPayCommand;
 import by.epam.hotel.command.impl.client.ToReplenishCommand;
-import by.epam.hotel.command.impl.client.ToSetRecordsPerPageAccountOrderCommand;
 import by.epam.hotel.command.impl.common.BackToSignupCommand;
 import by.epam.hotel.command.impl.common.ChangeLocaleCommand;
 import by.epam.hotel.command.impl.common.ChangeLoginCommand;
@@ -105,7 +97,6 @@ public enum CommandType {
 	BACK_TO_PAYPAGE(new BackToPayPageCommand()),
 	REPLENISH(new ReplenishCommand()),
 	PAY(new PayCommand()),
-	TO_SET_RECORDS_PER_PAGE_ACCOUNT_ORDER(new ToSetRecordsPerPageAccountOrderCommand()), 
 	TO_ACCOUNT_ORDERS(new ToAccountOrdersCommand()),
 	CANCEL_ORDER(new CancelOrderCommand()),
 	BACK_TO_ACCOUNT_ORDERS(new BackToAccountOrdersCommand()),
@@ -119,16 +110,13 @@ public enum CommandType {
 	CHANGE_PASSWORD(new ChangePasswordCommand()),
 	DELETE_ACCOUNT(new DeleteAccountCommand()),
 	TO_ALL_ORDERS(new ToAllOrdersCommand()),
-	TO_SET_RECORDS_PER_PAGE_ORDER(new ToSetRecordsPerPageOrderCommand()),
 	BACK_TO_ADMIN_MAIN(new BackToAdminmainCommand()),
 	CANCEL_ORDER_ADMIN(new CancelOrderAdminCommand()),
 	APPROVE_ADMIN_ORDER_CANCEL(new ApproveAdminOrderCancelCommand()), 
-	TO_SET_RECORDS_PER_PAGE_CLIENT(new ToSetRecordsPerPageClientCommand()),
 	TO_ALL_CLIENTS(new ToAllClientsCommand()), 
 	CHANGE_BLACKLIST(new ChangeBlackListCommand()),
 	BACK_TO_ALL_ORDERS(new BackToAllOrdersCommand()), 
 	TO_ADMIN_ROOMS(new ToAdminRoomsCommand()),
-	TO_SET_RECORDS_PER_PAGE_ROOM(new ToSetRecordsPerPageRoomCommand()),
 	BACK_TO_ADMIN_ROOMS(new BackToAdminRoomsCommand()),
 	TO_ALL_ROOMS(new ToAllRoomsCommand()), 
 	CHANGE_ROOM_REMOVED(new ChangeRoomRemovedCommand()), 
@@ -138,7 +126,6 @@ public enum CommandType {
 	TO_CREATE_ROOM(new ToCreateRoomCommand()),
 	CREATE_ROOM(new CreateRoomCommand()),
 	TO_ADMIN_NATIONALITIES(new ToAdminNationalitiesCommand()), 
-	TO_SET_RECORDS_PER_PAGE_NATIONALITY(new ToSetRecordsPerPageNationalityCommand()), 
 	BACK_TO_ADMIN_NATIONALITIES(new BackToAdminNationalitiesCommand()),
 	TO_ALL_NATIONALITIES(new ToAllNationalitiesCommand()),
 	CHANGE_NATIONALITY_REMOVED(new ChangeNationalityRemovedCommand()),
@@ -148,18 +135,15 @@ public enum CommandType {
 	TOCREATENATIONALITY(new ToCreateNationalityCommand()),
 	CREATE_NATIONALITY(new CreateNationalityCommand()), 
 	TO_ADMIN_CLASSES(new ToAdminClassesCommand()),
-	TO_SET_RECORDS_PER_PAGE_CLASS(new ToSetRecordsPerPageClassCommand()), 
 	BACK_TO_ADMIN_CLASSES(new BackToAdminClassesCommand()), 
 	TO_ALL_CLASSES(new ToAllClassesCommand()), 
 	CHANGE_CLASS_REMOVED(new ChangeClassRemovedCommand()),
 	TO_CREATE_CLASS(new ToCreateClassCommand()),
 	CREATE_CLASS(new CreateClassCommand()), 
-	TO_SET_RECORDS_PER_PAGE_ACCOUNT(new ToSetRecordsPerPageAccountCommand()),
 	TO_ALL_ACCOUNTS(new ToAllAccountsCommand()),
 	CHANGE_ADMIN_RIGHTS(new ChangeAdminRightsCommand()), 
 	BACK_TO_SIGNUP(new BackToSignupCommand()),
 	CHECK_KEY_AND_SIGNUP(new CheckKeyAndSignUpCommand()),
-	TO_SET_RECORDS_PER_PAGE_EMAIL(new ToSetRecordsPerPageEmailCommand()),
 	TO_ALL_EMAILS(new ToAllEmailsCommand()), 
 	ADD_REMOVE_TO_SENDLIST(new AddRemoveToSendListCommand()), 
 	SUBJECT_TEXT_SEND(new ToSubjectTextSendCommand()), 
