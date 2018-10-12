@@ -13,10 +13,10 @@ public class MessageManager {
 	}
 
 	public static String getProrerty(String key, Locale locale) {
-		if(ENG.equals(locale)) {
-			return resourceBundleEn.getString(key);
-		}else {
+		if(RUS.equals(locale)) {
 			return resourceBundleRu.getString(key);
+		}else {
+			return resourceBundleEn.getString(key);
 		}
 		
 	}

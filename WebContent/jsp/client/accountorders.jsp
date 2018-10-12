@@ -11,6 +11,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="/WEB-INF/tld/format.tld" prefix="fmtl"%>
 <fmt:setLocale value="${sessionData.locale}" scope="session" />
 <fmt:bundle basename="resource.i18n.interface" prefix="accountorders.">
 <html>
@@ -69,10 +70,10 @@
 					    <td class="tg-c3ow">${order.room.number }</td>
 					    <td class="tg-c3ow">${order.room.classRoom }</td>
 					    <td class="tg-c3ow">${order.room.capacity }</td>
-					    <td class="tg-c3ow">${order.room.price }</td>
-					    <td class="tg-c3ow">${order.from }</td>
-					    <td class="tg-c3ow">${order.to }</td>
-					    <td class="tg-c3ow">${order.cost }</td>
+ 						<td class="tg-c3ow">${fmtl:parseCurrency(order.room.price, sessionData.locale) }</td>
+					    <td class="tg-c3ow"><fmtl:localDate date="${order.from }"/> </td>
+					    <td class="tg-c3ow"><fmtl:localDate date="${order.to }"/></td>
+					    <td class="tg-c3ow">${fmtl:parseCurrency(order.cost, sessionData.locale)}</td>
 					    <td>   
 					    <c:choose>
 					    	<c:when test="${order.from.isAfter(localDateNow.now) && order.removed=='false' }">
