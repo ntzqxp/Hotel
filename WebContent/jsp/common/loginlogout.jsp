@@ -3,11 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <fmt:setLocale value="${sessionData.locale}" scope="session" />
 <fmt:bundle basename="resource.i18n.interface" prefix="loginlogout.">
-<html>
-<head>
-<title></title>
-</head>
-<body>
+
 	<table>
 		<tr>
 			<td>${sessionData.login}</td>
@@ -22,6 +18,5 @@
 			</td>
 		</tr>
 	</table>
-</body>
-</html>
+
 </fmt:bundle>
