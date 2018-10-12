@@ -17,13 +17,13 @@ import by.epam.hotel.exception.ServiceException;
 import by.epam.hotel.service.AdminService;
 import by.epam.hotel.util.ConfigurationManager;
 import by.epam.hotel.util.MessageManager;
-import by.epam.hotel.util.Validator;
 import by.epam.hotel.util.constant.AttributeConstant;
 import by.epam.hotel.util.constant.ParameterConstant;
 import by.epam.hotel.util.constant.PropertyConstant;
 import by.epam.hotel.util.constant.ValidationConstant;
 import by.epam.hotel.util.type.RoleType;
 import by.epam.hotel.util.type.RouterType;
+import by.epam.hotel.util.validator.RoomValidator;
 
 public class ApproveChangeRoomCommand implements ActionCommand{
 	
@@ -79,12 +79,12 @@ public class ApproveChangeRoomCommand implements ActionCommand{
 	private boolean validateInputData(String capacity, String price, HttpServletRequest request, SessionData sessionData) {
 		boolean result = true;
 		
-		if (!Validator.validateNumber(capacity)) {
+		if (!RoomValidator.validateNumber(capacity)) {
 			request.setAttribute(AttributeConstant.ERROR_CAPACITY_MESSAGE, 
 					MessageManager.getProrerty(PropertyConstant.MESSAGE_CAPACITY_ERROR, sessionData.getLocale()));
 			result = false;
 		}
-		if (!Validator.validateCurrency(price)) {
+		if (!RoomValidator.validateCurrency(price)) {
 			request.setAttribute(AttributeConstant.WRONG_INPUT_AMOUNT, 
 					MessageManager.getProrerty(PropertyConstant.MESSAGE_INPUT_AMOUNT_ERROR, sessionData.getLocale()));
 			result = false;

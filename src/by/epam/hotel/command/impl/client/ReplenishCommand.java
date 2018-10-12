@@ -15,13 +15,13 @@ import by.epam.hotel.exception.ServiceException;
 import by.epam.hotel.service.ClientService;
 import by.epam.hotel.util.ConfigurationManager;
 import by.epam.hotel.util.MessageManager;
-import by.epam.hotel.util.Validator;
 import by.epam.hotel.util.constant.AttributeConstant;
 import by.epam.hotel.util.constant.ParameterConstant;
 import by.epam.hotel.util.constant.PropertyConstant;
 import by.epam.hotel.util.constant.ValidationConstant;
 import by.epam.hotel.util.type.RoleType;
 import by.epam.hotel.util.type.RouterType;
+import by.epam.hotel.util.validator.RoomValidator;
 
 public class ReplenishCommand implements ActionCommand{
 	@Override
@@ -32,7 +32,7 @@ public class ReplenishCommand implements ActionCommand{
 		SessionData sessionData = (SessionData) session.getAttribute(AttributeConstant.SESSION_DATA);
 		if (sessionData.getRole() == RoleType.CLIENT) {
 			String replenishAmount = request.getParameter(ParameterConstant.REPLENISH_AMOUNT);
-			if(Validator.validateCurrency(replenishAmount)) {
+			if(RoomValidator.validateCurrency(replenishAmount)) {
 				try {
 					BigDecimal currentAmount = sessionData.getCurrentAmount();
 					BigDecimal bigDecimalReplenishAmount = parseToBigDecimal(replenishAmount);

@@ -132,7 +132,7 @@ public enum CommandType {
 	CHANGE_NATIONALITY(new ChangeNationalityCommand()),
 	BACK_TO_ALL_NATIONALITIES(new BackToAllNationalitiesCommand()),
 	APPROVE_CHANGE_NATIONALITY(new ApproveChangeNationalityCommand()),
-	TOCREATENATIONALITY(new ToCreateNationalityCommand()),
+	TO_CREATE_NATIONALITY(new ToCreateNationalityCommand()),
 	CREATE_NATIONALITY(new CreateNationalityCommand()), 
 	TO_ADMIN_CLASSES(new ToAdminClassesCommand()),
 	BACK_TO_ADMIN_CLASSES(new BackToAdminClassesCommand()), 

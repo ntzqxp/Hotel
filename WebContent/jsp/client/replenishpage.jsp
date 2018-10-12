@@ -4,6 +4,7 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <fmt:setLocale value="${sessionData.locale}" scope="session" />
+<fmt:setBundle basename="resource.i18n.messages" var="rb" />
 <fmt:bundle basename="resource.i18n.interface" prefix="replenishpage.">
 <html>
 <head>
@@ -19,7 +20,8 @@
 		<table >
 			<tr>
 				<td valign="top"><fmt:message key="replamount" />: </td>
-				<td valign="top"><input type="text" name="replenishAmount" size="40" autocomplete="off" /></td>
+				<td valign="top"><input type="text" name="replenishAmount" size="40" autocomplete="off" 
+				pattern="^[0-9]{1,10}([\\.,][0-9]{0,2})?$" title="<fmt:message key="message.wronginputreplenishamount" bundle="${ rb }" />"/></td>
 				<td valign="top">${wrongInputReplenishAmount}${errorReplenishMessage}</td>
 			</tr>
 			<tr>

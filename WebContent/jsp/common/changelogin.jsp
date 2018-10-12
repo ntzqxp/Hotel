@@ -3,6 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <fmt:setLocale value="${sessionData.locale}" scope="session" />
+<fmt:setBundle basename="resource.i18n.messages" var="rb" />
 <fmt:bundle basename="resource.i18n.interface" prefix="changelogin.">
 <html>
 <head>
@@ -16,7 +17,9 @@
 	<input type="hidden" name="command" value="change_login" />
 	<table>
 		<tr>
-		<td><fmt:message key="labelnewlogin" />: </td><td><input type="text" name="newLogin" autocomplete="off"/>
+		<td><fmt:message key="labelnewlogin" />: </td>
+		<td><input type="text" name="newLogin" autocomplete="off"
+		pattern="^[a-zA-ZА-Яа-я0-9_-]{3,25}$" title="<fmt:message key="message.loginsignuperror" bundle="${ rb }" />" />
 		${errorLoginValidateMessage }${errorChangeLoginMessage }
 		</td>
 		</tr>

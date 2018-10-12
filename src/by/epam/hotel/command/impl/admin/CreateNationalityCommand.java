@@ -12,12 +12,12 @@ import by.epam.hotel.exception.ServiceException;
 import by.epam.hotel.service.AdminService;
 import by.epam.hotel.util.ConfigurationManager;
 import by.epam.hotel.util.MessageManager;
-import by.epam.hotel.util.Validator;
 import by.epam.hotel.util.constant.AttributeConstant;
 import by.epam.hotel.util.constant.ParameterConstant;
 import by.epam.hotel.util.constant.PropertyConstant;
 import by.epam.hotel.util.type.RoleType;
 import by.epam.hotel.util.type.RouterType;
+import by.epam.hotel.util.validator.ClientValidator;
 
 public class CreateNationalityCommand implements ActionCommand{
 	
@@ -60,12 +60,12 @@ public class CreateNationalityCommand implements ActionCommand{
 	private boolean validateInputData(String countryId, String country, HttpServletRequest request, SessionData sessionData) {
 		boolean result = true;
 		
-		if (!Validator.validateCountryId(countryId)) {
+		if (!ClientValidator.validateCountryId(countryId)) {
 			request.setAttribute(AttributeConstant.ERROR_COUNTRY_ID_MESSAGE, 
 					MessageManager.getProrerty(PropertyConstant.MESSAGE_COUNTRY_ID_ERROR, sessionData.getLocale()));
 			result = false;
 		}
-		if (!Validator.validateCountry(country)) {
+		if (!ClientValidator.validateCountry(country)) {
 			request.setAttribute(AttributeConstant.ERROR_COUNTRY_MESSAGE,
 					MessageManager.getProrerty(PropertyConstant.MESSAGE_COUNTRY_ERROR, sessionData.getLocale()));
 			result = false;

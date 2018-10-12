@@ -11,12 +11,12 @@ import by.epam.hotel.exception.ServiceException;
 import by.epam.hotel.service.CommonService;
 import by.epam.hotel.util.ConfigurationManager;
 import by.epam.hotel.util.MessageManager;
-import by.epam.hotel.util.Validator;
 import by.epam.hotel.util.constant.AttributeConstant;
 import by.epam.hotel.util.constant.ParameterConstant;
 import by.epam.hotel.util.constant.PropertyConstant;
 import by.epam.hotel.util.type.RoleType;
 import by.epam.hotel.util.type.RouterType;
+import by.epam.hotel.util.validator.AccountValidator;
 
 public class ChangePasswordCommand implements ActionCommand {
 
@@ -30,7 +30,7 @@ public class ChangePasswordCommand implements ActionCommand {
 			String newPassword = request.getParameter(ParameterConstant.NEW_PASSWORD);
 			String oldPassword = request.getParameter(ParameterConstant.OLD_PASSWORD);
 			String currentLogin = sessionData.getLogin();
-			if (Validator.validatePassword(newPassword)) {
+			if (AccountValidator.validatePassword(newPassword)) {
 				try {
 					if (CommonService.checkLogin(currentLogin, oldPassword)) {
 						if (CommonService.changePassword(oldPassword, newPassword, currentLogin)) {

@@ -11,12 +11,12 @@ import by.epam.hotel.exception.ServiceException;
 import by.epam.hotel.service.CommonService;
 import by.epam.hotel.util.ConfigurationManager;
 import by.epam.hotel.util.MessageManager;
-import by.epam.hotel.util.Validator;
 import by.epam.hotel.util.constant.AttributeConstant;
 import by.epam.hotel.util.constant.ParameterConstant;
 import by.epam.hotel.util.constant.PropertyConstant;
 import by.epam.hotel.util.type.RoleType;
 import by.epam.hotel.util.type.RouterType;
+import by.epam.hotel.util.validator.AuthenticationValidator;
 
 public class CheckKeyAndSignUpCommand implements ActionCommand{
 
@@ -34,7 +34,7 @@ public class CheckKeyAndSignUpCommand implements ActionCommand{
 			String email = sessionData.getTempEmail();
 			String emailKey = sessionData.getTempEmailKey();
 			String emailConfirmationKey = request.getParameter(ParameterConstant.EMAIL_CONFIRMATION_KEY).trim();
-			if (Validator.validateEmailConfirmationKey(emailConfirmationKey)&&emailKey.equals(emailConfirmationKey)) {
+			if (AuthenticationValidator.validateEmailConfirmationKey(emailConfirmationKey)&&emailKey.equals(emailConfirmationKey)) {
 				try {
 					if (CommonService.createAccount(login, email, password)) {
 						page = ConfigurationManager.getProperty(PropertyConstant.PAGE_CLIENTMAIN);

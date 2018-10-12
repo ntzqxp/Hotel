@@ -14,12 +14,12 @@ import by.epam.hotel.util.ConfigurationManager;
 import by.epam.hotel.util.Encoder;
 import by.epam.hotel.util.MailSender;
 import by.epam.hotel.util.MessageManager;
-import by.epam.hotel.util.Validator;
 import by.epam.hotel.util.constant.AttributeConstant;
 import by.epam.hotel.util.constant.ParameterConstant;
 import by.epam.hotel.util.constant.PropertyConstant;
 import by.epam.hotel.util.type.RoleType;
 import by.epam.hotel.util.type.RouterType;
+import by.epam.hotel.util.validator.AccountValidator;
 
 public class SignUpCommand implements ActionCommand {	
 
@@ -96,17 +96,17 @@ public class SignUpCommand implements ActionCommand {
 
 	private boolean validateInputData(String login, String password, String email, HttpServletRequest request, SessionData sessionData) {
 		boolean result = true;
-		if (!Validator.validateLogin(login)) {
+		if (!AccountValidator.validateLogin(login)) {
 			request.setAttribute(AttributeConstant.ERROR_LOGIN_SIGNUP_MESSAGE, 
 					MessageManager.getProrerty(PropertyConstant.MESSAGE_LOGIN_SIGNUP_ERROR, sessionData.getLocale()));
 			result = false;
 		}
-		if (!Validator.validateEmail(email)) {
+		if (!AccountValidator.validateEmail(email)) {
 			request.setAttribute(AttributeConstant.ERROR_EMAIL_SIGHUP_MESSAGE,
 					MessageManager.getProrerty(PropertyConstant.MESSAGE_EMAIL_SIGHUP_ERROR, sessionData.getLocale()));
 			result = false;
 		}
-		if (!Validator.validatePassword(password)) {
+		if (!AccountValidator.validatePassword(password)) {
 			request.setAttribute(AttributeConstant.ERROR_PASSWORD_SIGHUP_MESSAGE,
 					MessageManager.getProrerty(PropertyConstant.MESSAGE_PASSWORD_SIGNUP_ERROR, sessionData.getLocale()));
 			result = false;

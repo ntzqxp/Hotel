@@ -12,12 +12,12 @@ import by.epam.hotel.exception.ServiceException;
 import by.epam.hotel.service.AdminService;
 import by.epam.hotel.util.ConfigurationManager;
 import by.epam.hotel.util.MessageManager;
-import by.epam.hotel.util.Validator;
 import by.epam.hotel.util.constant.AttributeConstant;
 import by.epam.hotel.util.constant.ParameterConstant;
 import by.epam.hotel.util.constant.PropertyConstant;
 import by.epam.hotel.util.type.RoleType;
 import by.epam.hotel.util.type.RouterType;
+import by.epam.hotel.util.validator.RoomValidator;
 
 public class CreateClassCommand implements ActionCommand{
 	
@@ -29,7 +29,7 @@ public class CreateClassCommand implements ActionCommand{
 		SessionData sessionData = (SessionData) session.getAttribute(AttributeConstant.SESSION_DATA);
 		if (sessionData.getRole() == RoleType.ADMIN) {
 			String classId = request.getParameter(ParameterConstant.CLASS_ID);
-			if(Validator.validateClassId(classId)) {
+			if(RoomValidator.validateClassId(classId)) {
 				RoomClass newRoomClass = new RoomClass(classId);
 				try {
 					if(AdminService.createRoomClass(newRoomClass)) {

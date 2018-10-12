@@ -17,12 +17,13 @@ import by.epam.hotel.exception.ServiceException;
 import by.epam.hotel.service.ClientService;
 import by.epam.hotel.util.ConfigurationManager;
 import by.epam.hotel.util.MessageManager;
-import by.epam.hotel.util.Validator;
 import by.epam.hotel.util.constant.AttributeConstant;
 import by.epam.hotel.util.constant.ParameterConstant;
 import by.epam.hotel.util.constant.PropertyConstant;
 import by.epam.hotel.util.type.RoleType;
 import by.epam.hotel.util.type.RouterType;
+import by.epam.hotel.util.validator.ClientValidator;
+import by.epam.hotel.util.validator.RoomValidator;
 
 public class FindRoomCommand implements ActionCommand {
 
@@ -81,32 +82,32 @@ public class FindRoomCommand implements ActionCommand {
 	private boolean validateInputData(String fname, String lname, String passport, String nationality,
 			List<Nationality> nationalities, String capacity, String from, String to, HttpServletRequest request, SessionData sessionData) {
 		boolean result = true;
-		if (!Validator.validateFName(fname)) {
+		if (!ClientValidator.validateFName(fname)) {
 			request.setAttribute(AttributeConstant.ERROR_FIRST_NAME_MESSAGE,
 					MessageManager.getProrerty(PropertyConstant.MESSAGE_FIRST_NAME_ERROR, sessionData.getLocale()));
 			result = false;
 		}
-		if (!Validator.validateLName(lname)) {
+		if (!ClientValidator.validateLName(lname)) {
 			request.setAttribute(AttributeConstant.ERROR_LAST_NAME_MESSAGE,
 					MessageManager.getProrerty(PropertyConstant.MESSAGE_LAST_NAME_ERROR, sessionData.getLocale()));
 			result = false;
 		}
-		if (!Validator.validatePassport(passport)) {
+		if (!ClientValidator.validatePassport(passport)) {
 			request.setAttribute(AttributeConstant.ERROR_PASSPORT_MESSAGE,
 					MessageManager.getProrerty(PropertyConstant.MESSAGE_PASSPORT_ERROR, sessionData.getLocale()));
 			result = false;
 		}
-		if (!Validator.validateNationality(nationality, nationalities)) {
+		if (!ClientValidator.validateNationality(nationality, nationalities)) {
 			request.setAttribute(AttributeConstant.ERROR_NATIONALITY_MESSAGE,
 					MessageManager.getProrerty(PropertyConstant.MESSAGE_NATIONALITY_ERROR, sessionData.getLocale()));
 			result = false;
 		}
-		if (!Validator.validateNumber(capacity)) {
+		if (!RoomValidator.validateNumber(capacity)) {
 			request.setAttribute(AttributeConstant.ERROR_CAPACITY_MESSAGE,
 					MessageManager.getProrerty(PropertyConstant.MESSAGE_CAPACITY_ERROR, sessionData.getLocale()));
 			result = false;
 		}
-		if (!Validator.validateFromTo(from, to)) {
+		if (!RoomValidator.validateFromTo(from, to)) {
 			request.setAttribute(AttributeConstant.ERROR_FROM_TO_MESSAGE,
 					MessageManager.getProrerty(PropertyConstant.MESSAGE_FROM_TO_ERROR, sessionData.getLocale()));
 			result = false;

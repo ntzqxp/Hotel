@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <fmt:setLocale value="${sessionData.locale}" scope="session" />
+<fmt:setBundle basename="resource.i18n.messages" var="rb" />
 <fmt:bundle basename="resource.i18n.interface" prefix="changenationality.">
 <html>
 <head>
@@ -23,7 +24,8 @@
 			</tr>
 			<tr>
 				<td><fmt:message key="country" />: </td>
-				<td><input type="text" name="country" value="${sessionData.nationalityToChange.country }" /></td>
+				<td><input type="text" name="country" value="${sessionData.nationalityToChange.country }" 
+				pattern="^[A-Za-zА-яа-я Ёё'-]{1,80}$" title="<fmt:message key="message.countryerror" bundle="${ rb }" />" /></td>
 				<td>${errorCountryMessage}</td>
 			</tr>
 			<tr>

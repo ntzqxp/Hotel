@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="80" started-at="2018-10-11T17:55:41Z" finished-at="2018-10-11T17:55:41Z">
+  <suite name="Default suite" duration-ms="206" started-at="2018-10-12T14:10:00Z" finished-at="2018-10-12T14:10:00Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="80" started-at="2018-10-11T17:55:41Z" finished-at="2018-10-11T17:55:41Z">
+    <test name="Default test" duration-ms="206" started-at="2018-10-12T14:10:00Z" finished-at="2018-10-12T14:10:00Z">
       <class name="by.epam.hotel.util.MessageManagerTest">
-        <test-method status="PASS" signature="f()[pri:0, instance:by.epam.hotel.util.MessageManagerTest@59f99ea]" name="f" duration-ms="26" started-at="2018-10-11T17:55:41Z" finished-at="2018-10-11T17:55:41Z">
+        <test-method status="PASS" signature="f()[pri:0, instance:by.epam.hotel.util.MessageManagerTest@59f99ea]" name="f" duration-ms="100" started-at="2018-10-12T14:10:00Z" finished-at="2018-10-12T14:10:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- f -->

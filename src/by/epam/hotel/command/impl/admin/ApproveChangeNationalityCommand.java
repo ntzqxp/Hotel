@@ -14,12 +14,12 @@ import by.epam.hotel.exception.ServiceException;
 import by.epam.hotel.service.AdminService;
 import by.epam.hotel.util.ConfigurationManager;
 import by.epam.hotel.util.MessageManager;
-import by.epam.hotel.util.Validator;
 import by.epam.hotel.util.constant.AttributeConstant;
 import by.epam.hotel.util.constant.ParameterConstant;
 import by.epam.hotel.util.constant.PropertyConstant;
 import by.epam.hotel.util.type.RoleType;
 import by.epam.hotel.util.type.RouterType;
+import by.epam.hotel.util.validator.ClientValidator;
 
 public class ApproveChangeNationalityCommand implements ActionCommand{
 	
@@ -34,7 +34,7 @@ public class ApproveChangeNationalityCommand implements ActionCommand{
 			String country = request.getParameter(ParameterConstant.COUNTRY);
 			int recordsPerPage = sessionData.getRecordsPerPage();
 			int currentPage = sessionData.getCurrentPage();
-			if(Validator.validateCountry(country)) {
+			if(ClientValidator.validateCountry(country)) {
 					Nationality updatedNationality = new Nationality(countryId, country);
 					try {
 						if(AdminService.approveChangeNationality(updatedNationality)) {
