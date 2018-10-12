@@ -75,6 +75,12 @@ import by.epam.hotel.command.impl.common.ToDeleteAccountCommand;
 import by.epam.hotel.command.impl.common.ToLoginCommand;
 import by.epam.hotel.command.impl.common.ToSighUpCommand;
 
+/**
+ * This class is the repository of all action commands used in the application
+ * 
+ * @author Evgeniy Moiseyenko
+ *
+ */
 public enum CommandType {
 	LOGIN(new LoginCommand()), 
 	LOGOUT(new LogoutCommand()), 
@@ -152,12 +158,18 @@ public enum CommandType {
 	ERROR_BACK(new ErrorBackCommand());
 	
 	
-	private CommandType(ActionCommand command) {
+	CommandType(ActionCommand command) {
 		this.command = command;
 	}
 
 	private ActionCommand command;
 
+	/**
+	 * Return the implementation of command object
+	 * 
+	 * 
+	 * @return  the implementation of {@link ActionCommand} 
+	 */
 	public ActionCommand getCurrentCommand() {
 		return command;
 	}

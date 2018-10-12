@@ -3,7 +3,7 @@ package by.epam.hotel.command.impl.common;
 import javax.servlet.http.HttpServletRequest;
 
 import by.epam.hotel.command.ActionCommand;
-import by.epam.hotel.controller.Router;
+import by.epam.hotel.entity.Router;
 import by.epam.hotel.util.ConfigurationManager;
 import by.epam.hotel.util.constant.PropertyConstant;
 import by.epam.hotel.util.type.RouterType;

@@ -9,7 +9,7 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.BodyTagSupport;
 
-import by.epam.hotel.controller.SessionData;
+import by.epam.hotel.entity.SessionData;
 
 public class LocalDateFormatTag extends BodyTagSupport {
 	private static final long serialVersionUID = -43577037147502463L;

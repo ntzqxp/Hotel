@@ -4,11 +4,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <fmt:setLocale value="${sessionData.locale}" scope="session" />
 <fmt:bundle basename="resource.i18n.interface" prefix="loginsignup.">
-<html>
-<head>
-<title></title>
-</head>
-<body>
+
+
+
 	<c:choose>
 		<c:when test="${sessionData.role=='GUEST' }">
 			<table>
@@ -67,6 +65,6 @@
 			</table>
 		</c:otherwise>
 	</c:choose>
-</body>
-</html>
+
+
 </fmt:bundle>

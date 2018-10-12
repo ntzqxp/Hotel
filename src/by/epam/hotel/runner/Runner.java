@@ -16,6 +16,7 @@ import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import java.util.List;
 
+import by.epam.hotel.command.CommandType;
 import by.epam.hotel.dao.DaoFieldType;
 import by.epam.hotel.dao.TransactionHelper;
 import by.epam.hotel.dao.impl.AccountDao;
@@ -46,6 +47,7 @@ public class Runner {
 		BankAccountDao bankdao = new BankAccountDao();
 
 		List<Room> rooms = null;
+		
 		
 		
 		System.out.println(Encoder.encodePassword("admin", "1"));
