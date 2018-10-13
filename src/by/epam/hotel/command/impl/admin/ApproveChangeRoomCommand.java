@@ -35,10 +35,13 @@ import by.epam.hotel.util.validator.RoomValidator;
 public class ApproveChangeRoomCommand implements ActionCommand{
 	
 	/**
-	 * If user's role equals {@link by.epam.hotel.util.type.RoleType#ADMIN ADMIN} method approve
-	 * modification of specified room and return admin by
+	 * If user's role does not equal {@link by.epam.hotel.util.type.RoleType#ADMIN ADMIN} 
+	 * method  will return user by {@link by.epam.hotel.util.type.RouterType FORWARD} to welcome page.
+	 * If parameters: capacity and price are invalid or if the room with specified parameters 
+	 * cannot be updated, method will return user by 
+	 * {@link by.epam.hotel.util.type.RouterType FORWARD} to previous page.
+	 * Otherwise method will approve modification of specified room and return admin by
 	 * {@link by.epam.hotel.util.type.RouterType REDIRECT} to page with all rooms.
-	 * Otherwise method  returns user by {@link by.epam.hotel.util.type.RouterType FORWARD} to welcome page.
 	 */
 	@Override
 	public Router execute(HttpServletRequest request) throws CommandException {

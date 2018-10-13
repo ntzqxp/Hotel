@@ -15,6 +15,13 @@ import by.epam.hotel.util.constant.PropertyConstant;
 import by.epam.hotel.util.type.RoleType;
 import by.epam.hotel.util.type.RouterType;
 
+/**
+ * This class is an implementation of a {@link by.epam.hotel.command.ActionCommand ActionCommand} interface 
+ * and is used to send specified order to page of its cancel approvement.
+ * 
+ * 
+ * @author Evgeniy Moiseyenko
+ */
 public class CancelOrderAdminCommand implements ActionCommand {
 	
 	@Override

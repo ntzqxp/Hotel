@@ -31,10 +31,13 @@ import by.epam.hotel.util.validator.ClientValidator;
 public class ApproveChangeNationalityCommand implements ActionCommand{
 	
 	/**
-	 * If user's role equals {@link by.epam.hotel.util.type.RoleType#ADMIN ADMIN} method approve
-	 * modification of specified nationality and return admin by
+	 * If user's role does not equal {@link by.epam.hotel.util.type.RoleType#ADMIN ADMIN} 
+	 * method  will return user by {@link by.epam.hotel.util.type.RouterType FORWARD} to welcome page.
+	 * If parameter: country is invalid or if the nationality with specified parameter 
+	 * cannot be updated, method will return user by 
+	 * {@link by.epam.hotel.util.type.RouterType FORWARD} to previous page.
+	 * Otherwise method will approve modification of specified nationality and return admin by
 	 * {@link by.epam.hotel.util.type.RouterType REDIRECT} to page with all nationalities.
-	 * Otherwise method  returns user by {@link by.epam.hotel.util.type.RouterType FORWARD} to welcome page.
 	 */
 	@Override
 	public Router execute(HttpServletRequest request) throws CommandException {

@@ -22,9 +22,9 @@ import by.epam.hotel.util.type.RouterType;
 public class BackToAllEmailsCommand implements ActionCommand{
 
 	/**
-	 * If user's role equals {@link by.epam.hotel.util.type.RoleType#ADMIN ADMIN} method return 
+	 * If user's role equals {@link by.epam.hotel.util.type.RoleType#ADMIN ADMIN} method will return 
 	 * admin back by {@link by.epam.hotel.util.type.RouterType FORWARD} to page with list of all accounts' emails.
-	 * Otherwise method returns user by {@link by.epam.hotel.util.type.RouterType FORWARD} to welcome page.
+	 * Otherwise method will return user by {@link by.epam.hotel.util.type.RouterType FORWARD} to welcome page.
 	 */
 	@Override
 	public Router execute(HttpServletRequest request) throws CommandException {
@@ -34,7 +34,7 @@ public class BackToAllEmailsCommand implements ActionCommand{
 		if (sessionData.getRole() == RoleType.ADMIN) {
 			page = ConfigurationManager.getProperty(PropertyConstant.PAGE_ALL_EMAILS);
 		} else {
-			page = ConfigurationManager.getProperty(PropertyConstant.PAGE_LOGIN);
+			page = ConfigurationManager.getProperty(PropertyConstant.PAGE_WELCOME);
 		}
 		router.setPage(page);
 		router.setType(RouterType.FORWARD);

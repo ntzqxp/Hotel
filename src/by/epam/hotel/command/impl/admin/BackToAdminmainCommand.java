@@ -22,9 +22,9 @@ import by.epam.hotel.util.type.RouterType;
 public class BackToAdminmainCommand implements ActionCommand{
 
 	/**
-	 * If user's role equals {@link by.epam.hotel.util.type.RoleType#ADMIN ADMIN} method return 
+	 * If user's role equals {@link by.epam.hotel.util.type.RoleType#ADMIN ADMIN} method will return 
 	 * admin back by {@link by.epam.hotel.util.type.RouterType FORWARD} to admin's main page.
-	 * Otherwise method  returns user by {@link by.epam.hotel.util.type.RouterType FORWARD} to welcome page.
+	 * Otherwise method will return user by {@link by.epam.hotel.util.type.RouterType FORWARD} to welcome page.
 	 */
 	@Override
 	public Router execute(HttpServletRequest request) throws CommandException {

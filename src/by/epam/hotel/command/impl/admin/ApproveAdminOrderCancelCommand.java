@@ -31,10 +31,12 @@ import by.epam.hotel.util.type.RouterType;
 public class ApproveAdminOrderCancelCommand implements ActionCommand{
 	
 	/**
-	 * If user's role equals {@link by.epam.hotel.util.type.RoleType#ADMIN ADMIN} that method cancels
-	 * specified by admin order  and return him by {@link by.epam.hotel.util.type.RouterType REDIRECT}
-	 * to page with all orders.
-	 * Otherwise method  returns user by {@link by.epam.hotel.util.type.RouterType FORWARD} to welcome page.
+	 * If user's role does not equal {@link by.epam.hotel.util.type.RoleType#ADMIN ADMIN} 
+	 * method  will return user by {@link by.epam.hotel.util.type.RouterType FORWARD} to welcome page.
+	 * If the order with specified parameters cannot be updated, method will return user by 
+	 * {@link by.epam.hotel.util.type.RouterType FORWARD} to previous page.
+	 * Otherwise method will cancel specified order and return admin by
+	 * {@link by.epam.hotel.util.type.RouterType REDIRECT} to page with all orders.
 	 */
 	@Override
 	public Router execute(HttpServletRequest request) throws CommandException {
