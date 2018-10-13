@@ -6,60 +6,48 @@
 <fmt:bundle basename="resource.i18n.interface" prefix="loginsignup.">
 	<c:choose>
 		<c:when test="${sessionData.role=='GUEST' }">
-			<table>
-				<tr>
-					<td>
-					<form action="${pageContext.request.contextPath}/controller" method="post">
-							<input type="hidden" name="command" value="to_login" /> <input
-								type="submit" value="<fmt:message key="login" />" size="20" />
-						</form></td>
-				</tr>
-				<tr>
-					<td>	
-						<form action="${pageContext.request.contextPath}/controller" method="post">
-						 <input type="hidden" name="command" value="to_signup" />
-						 <input type="submit" value="<fmt:message key="signup" />"
-							size="20" />
-						</form>
-					</td>
-				</tr>
-			</table>
+
+			<form action="${pageContext.request.contextPath}/controller"
+				method="post">
+				<input type="hidden" name="command" value="to_login" />
+				<input class="btn btn-lg btn-primary btn-block" type="submit" value="<fmt:message key="login" />" size="20" />
+			</form>
+
+			<form action="${pageContext.request.contextPath}/controller"
+				method="post">
+				<input type="hidden" name="command" value="to_signup" />
+				<input class="btn btn-sm btn-primary btn-block btn-outline-primary" type="submit" value="<fmt:message key="signup" />" size="20" />
+			</form>
+
 
 		</c:when>
 		<c:otherwise>
-			<table>
-				<tr>
-					<td>${sessionData.login}</td>
-				</tr>
-				<tr>
-					<td>
-						<form action="${pageContext.request.contextPath}/controller" method="post" >
-							<input type="hidden" name="command" value="logout" /> 
-							<input type="submit" value="<fmt:message key="logout" />" />
-						</form>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<c:choose>
-							<c:when test="${sessionData.role=='ADMIN' }">
-								<form action="${pageContext.request.contextPath}/controller"
-									method="post">
-									<input type="hidden" name="command" value="back_to_admin_main" />
-									<input type="submit" value="<fmt:message key="toadminmain" />" size="20" />
-								</form>
-							</c:when>
-							<c:otherwise>
-								<form action="${pageContext.request.contextPath}/controller"
-									method="post">
-									<input type="hidden" name="command" value="back_to_client_main" />
-									<input type="submit" value="<fmt:message key="toclientmain" />" />
-								</form>
-							</c:otherwise>
-						</c:choose>
-					</td>
-				</tr>
-			</table>
+			${sessionData.login}
+			
+			<form action="${pageContext.request.contextPath}/controller"
+				method="post">
+				<input type="hidden" name="command" value="logout" />
+				<input class="btn btn-lg btn-primary btn-block" type="submit" value="<fmt:message key="logout" />" />
+			</form>
+
+			<c:choose>
+				<c:when test="${sessionData.role=='ADMIN' }">
+					<form action="${pageContext.request.contextPath}/controller"
+						method="post">
+						<input type="hidden" name="command" value="back_to_admin_main" />
+						<input class="btn btn-sm btn-primary btn-block btn-outline-primary" type="submit" value="<fmt:message key="toadminmain" />"
+							size="20" />
+					</form>
+				</c:when>
+				<c:otherwise>
+					<form action="${pageContext.request.contextPath}/controller"
+						method="post">
+						<input type="hidden" name="command" value="back_to_client_main" />
+						<input class="btn btn-sm btn-primary btn-block btn-outline-primary" type="submit" value="<fmt:message key="toclientmain" />" />
+					</form>
+				</c:otherwise>
+			</c:choose>
+
 		</c:otherwise>
 	</c:choose>
 </fmt:bundle>

@@ -3,34 +3,29 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <fmt:setLocale value="${sessionData.locale}" scope="session" />
 <fmt:bundle basename="resource.i18n.interface" prefix="welcome.">
-<html>
+	<html>
 <head>
+<link rel="stylesheet" type="text/css"
+	href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
+
 <title><fmt:message key="title" /></title>
 </head>
-<body>
-<jsp:include page="/locale" />
-	<br />
-	<hr />
-	<table>
-		<tr>
-			<td></td>
-			<td><jsp:include page="loginsignup.jsp" /></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td colspan="3"><fmt:message key="message" /></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td><fmt:message key="hotelinfo" /></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td><fmt:message key="contacts" /></td>
-			<td></td>
-		</tr>
-	</table>
+<body class="text-center">
+
+	<jsp:include page="/locale" />
+
+<main role="main"  class="container-fluid justify-content-md-center">
+	<jsp:include page="loginsignup.jsp" />
+
+
+	<div class="text-muted"><fmt:message key="message" /></div>
+
+
+	<div><fmt:message key="hotelinfo" /></div>
+
+	<div><fmt:message key="contacts" /></div>
+</main>
 </body>
-</html>
+	</html>
 </fmt:bundle>
