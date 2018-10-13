@@ -21,8 +21,25 @@ import by.epam.hotel.util.type.RoleType;
 import by.epam.hotel.util.type.RouterType;
 import by.epam.hotel.util.validator.AccountValidator;
 
+/**
+ * This class is an implementation of a
+ * {@link by.epam.hotel.command.ActionCommand ActionCommand} interface and is
+ * used to start client registration.
+ * 
+ * 
+ * @author Evgeniy Moiseyenko
+ */
 public class SignUpCommand implements ActionCommand {	
 
+	/**
+	 * If user's role equals to {@link by.epam.hotel.util.type.RoleType#CLIENT
+	 * CLIENT} or {@link by.epam.hotel.util.type.RoleType#ADMIN ADMIN}, method will
+	 * return user by {@link by.epam.hotel.util.type.RouterType FORWARD} to client
+	 * or admin home page respectively. If user's role equals to
+	 * {@link by.epam.hotel.util.type.RoleType#GUEST GUEST}, inputted login, password and 
+	 * email are correct and account with specified login or email does not exist, method will
+	 * send confirmation key to specified email and send user to key confirmation page.
+	 */
 	@Override
 	public Router execute(HttpServletRequest request) throws CommandException {
 		Router router = new Router();

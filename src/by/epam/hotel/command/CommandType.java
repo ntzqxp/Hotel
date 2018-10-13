@@ -4,9 +4,6 @@ import by.epam.hotel.command.impl.admin.AddRemoveToSendListCommand;
 import by.epam.hotel.command.impl.admin.ApproveAdminOrderCancelCommand;
 import by.epam.hotel.command.impl.admin.ApproveChangeNationalityCommand;
 import by.epam.hotel.command.impl.admin.ApproveChangeRoomCommand;
-import by.epam.hotel.command.impl.admin.BackToAdminClassesCommand;
-import by.epam.hotel.command.impl.admin.BackToAdminNationalitiesCommand;
-import by.epam.hotel.command.impl.admin.BackToAdminRoomsCommand;
 import by.epam.hotel.command.impl.admin.BackToAdminmainCommand;
 import by.epam.hotel.command.impl.admin.BackToAllEmailsCommand;
 import by.epam.hotel.command.impl.admin.BackToAllNationalitiesCommand;
@@ -40,7 +37,6 @@ import by.epam.hotel.command.impl.admin.ToAllAccountsCommand;
 import by.epam.hotel.command.impl.admin.ToAllClassesCommand;
 import by.epam.hotel.command.impl.client.ApproveOrderCancelCommand;
 import by.epam.hotel.command.impl.client.BackToAccountOrdersCommand;
-import by.epam.hotel.command.impl.client.BackToChangePersonalDataCommand;
 import by.epam.hotel.command.impl.client.BackToClientmainCommand;
 import by.epam.hotel.command.impl.client.BackToInfoPaymentCommnamd;
 import by.epam.hotel.command.impl.client.BackToOrderCommand;
@@ -112,7 +108,6 @@ public enum CommandType {
 	TO_CHANGE_PASSWORD(new ToChangePasswordCommand()),
 	TO_DELETE_ACCOUNT(new ToDeleteAccountCommand()),
 	CHANGE_LOGIN(new ChangeLoginCommand()), 
-	BACK_TO_CHANGE_PERSONAL_DATA(new BackToChangePersonalDataCommand()), 
 	CHANGE_PASSWORD(new ChangePasswordCommand()),
 	DELETE_ACCOUNT(new DeleteAccountCommand()),
 	TO_ALL_ORDERS(new ToAllOrdersCommand()),
@@ -123,7 +118,6 @@ public enum CommandType {
 	CHANGE_BLACKLIST(new ChangeBlackListCommand()),
 	BACK_TO_ALL_ORDERS(new BackToAllOrdersCommand()), 
 	TO_ADMIN_ROOMS(new ToAdminRoomsCommand()),
-	BACK_TO_ADMIN_ROOMS(new BackToAdminRoomsCommand()),
 	TO_ALL_ROOMS(new ToAllRoomsCommand()), 
 	CHANGE_ROOM_REMOVED(new ChangeRoomRemovedCommand()), 
 	CHANGE_ROOM(new ChangeRoomCommand()),
@@ -132,7 +126,6 @@ public enum CommandType {
 	TO_CREATE_ROOM(new ToCreateRoomCommand()),
 	CREATE_ROOM(new CreateRoomCommand()),
 	TO_ADMIN_NATIONALITIES(new ToAdminNationalitiesCommand()), 
-	BACK_TO_ADMIN_NATIONALITIES(new BackToAdminNationalitiesCommand()),
 	TO_ALL_NATIONALITIES(new ToAllNationalitiesCommand()),
 	CHANGE_NATIONALITY_REMOVED(new ChangeNationalityRemovedCommand()),
 	CHANGE_NATIONALITY(new ChangeNationalityCommand()),
@@ -141,7 +134,6 @@ public enum CommandType {
 	TO_CREATE_NATIONALITY(new ToCreateNationalityCommand()),
 	CREATE_NATIONALITY(new CreateNationalityCommand()), 
 	TO_ADMIN_CLASSES(new ToAdminClassesCommand()),
-	BACK_TO_ADMIN_CLASSES(new BackToAdminClassesCommand()), 
 	TO_ALL_CLASSES(new ToAllClassesCommand()), 
 	CHANGE_CLASS_REMOVED(new ChangeClassRemovedCommand()),
 	TO_CREATE_CLASS(new ToCreateClassCommand()),

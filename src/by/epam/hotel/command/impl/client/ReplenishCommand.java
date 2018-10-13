@@ -23,7 +23,25 @@ import by.epam.hotel.util.type.RoleType;
 import by.epam.hotel.util.type.RouterType;
 import by.epam.hotel.util.validator.RoomValidator;
 
-public class ReplenishCommand implements ActionCommand{
+/**
+ * This class is an implementation of a
+ * {@link by.epam.hotel.command.ActionCommand ActionCommand} interface and is
+ * used to replenish client's bank account.
+ * 
+ * 
+ * @author Evgeniy Moiseyenko
+ */
+public class ReplenishCommand implements ActionCommand {
+
+	/**
+	 * If user's role does not equal to {@link by.epam.hotel.util.type.RoleType#CLIENT
+	 * CLIENT} method will return user by {@link by.epam.hotel.util.type.RouterType
+	 * FORWARD} to welcome page. If inputted replenish amount is incorrect or if
+	 * client's bank account can not be updated with replenish amount, method will
+	 * return back client to replenish page with according information. Otherwise
+	 * method will provide replenishment of client's bank account and send client by
+	 * {@link by.epam.hotel.util.type.RouterType REDIRECT} to order payment page.
+	 */
 	@Override
 	public Router execute(HttpServletRequest request) throws CommandException {
 		Router router = new Router();
@@ -32,19 +50,19 @@ public class ReplenishCommand implements ActionCommand{
 		SessionData sessionData = (SessionData) session.getAttribute(AttributeConstant.SESSION_DATA);
 		if (sessionData.getRole() == RoleType.CLIENT) {
 			String replenishAmount = request.getParameter(ParameterConstant.REPLENISH_AMOUNT);
-			if(RoomValidator.validateCurrency(replenishAmount)) {
+			if (RoomValidator.validateCurrency(replenishAmount)) {
 				try {
 					BigDecimal currentAmount = sessionData.getCurrentAmount();
 					BigDecimal bigDecimalReplenishAmount = parseToBigDecimal(replenishAmount);
 					currentAmount = currentAmount.add(bigDecimalReplenishAmount);
 					try {
-						if(ClientService.updateBankAccount(sessionData.getLogin(), currentAmount)) {
+						if (ClientService.updateBankAccount(sessionData.getLogin(), currentAmount)) {
 							sessionData.setCurrentAmount(currentAmount);
 							page = ConfigurationManager.getProperty(PropertyConstant.PAGE_PAYPAGE);
 							router.setType(RouterType.REDIRECT);
-						}else {
-							request.setAttribute(AttributeConstant.ERROR_REPLENISH_MESSAGE,
-									MessageManager.getProrerty(PropertyConstant.MESSAGE_REPLENISH_ERROR, sessionData.getLocale()));
+						} else {
+							request.setAttribute(AttributeConstant.ERROR_REPLENISH_MESSAGE, MessageManager
+									.getProrerty(PropertyConstant.MESSAGE_REPLENISH_ERROR, sessionData.getLocale()));
 							page = ConfigurationManager.getProperty(PropertyConstant.PAGE_REPLENISH_PAGE);
 							router.setType(RouterType.FORWARD);
 						}
@@ -54,9 +72,9 @@ public class ReplenishCommand implements ActionCommand{
 				} catch (ParseException e) {
 					throw new CommandException(e);
 				}
-			}else {
-				request.setAttribute(AttributeConstant.ERROR_INPUT_WRONG_REPLENISH_AMOUNT,
-						MessageManager.getProrerty(PropertyConstant.MESSAGE_INPUT_REPLENISH_AMOUNT_ERROR, sessionData.getLocale()));
+			} else {
+				request.setAttribute(AttributeConstant.ERROR_INPUT_WRONG_REPLENISH_AMOUNT, MessageManager
+						.getProrerty(PropertyConstant.MESSAGE_INPUT_REPLENISH_AMOUNT_ERROR, sessionData.getLocale()));
 				page = ConfigurationManager.getProperty(PropertyConstant.PAGE_REPLENISH_PAGE);
 				router.setType(RouterType.FORWARD);
 			}
@@ -65,13 +83,13 @@ public class ReplenishCommand implements ActionCommand{
 			router.setType(RouterType.FORWARD);
 		}
 		router.setPage(page);
-		return router;	
+		return router;
 	}
-	
-	private BigDecimal parseToBigDecimal (String number) throws ParseException {
-        String processNumber = number.replace(ValidationConstant.COMMA, ValidationConstant.DOT);
-        BigDecimal result = new BigDecimal(processNumber).setScale(2, RoundingMode.HALF_UP);
-        return result;
+
+	private BigDecimal parseToBigDecimal(String number) throws ParseException {
+		String processNumber = number.replace(ValidationConstant.COMMA, ValidationConstant.DOT);
+		BigDecimal result = new BigDecimal(processNumber).setScale(2, RoundingMode.HALF_UP);
+		return result;
 	}
 
 }

@@ -22,7 +22,7 @@ import by.epam.hotel.util.type.RouterType;
 public class BackToAllEmailsCommand implements ActionCommand{
 
 	/**
-	 * If user's role equals {@link by.epam.hotel.util.type.RoleType#ADMIN ADMIN} method will return 
+	 * If user's role equals to {@link by.epam.hotel.util.type.RoleType#ADMIN ADMIN} method will return 
 	 * admin back by {@link by.epam.hotel.util.type.RouterType FORWARD} to page with list of all accounts' emails.
 	 * Otherwise method will return user by {@link by.epam.hotel.util.type.RouterType FORWARD} to welcome page.
 	 */

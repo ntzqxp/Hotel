@@ -18,8 +18,26 @@ import by.epam.hotel.util.type.RoleType;
 import by.epam.hotel.util.type.RouterType;
 import by.epam.hotel.util.validator.AccountValidator;
 
+/**
+ * This class is an implementation of a
+ * {@link by.epam.hotel.command.ActionCommand ActionCommand} interface and is
+ * used to change password of current user.
+ * 
+ * 
+ * @author Evgeniy Moiseyenko
+ */
 public class ChangePasswordCommand implements ActionCommand {
 
+	/**
+	 * If user's role does not equal to {@link by.epam.hotel.util.type.RoleType#CLIENT
+	 * CLIENT} or {@link by.epam.hotel.util.type.RoleType#ADMIN ADMIN}, method will
+	 * return user by {@link by.epam.hotel.util.type.RouterType FORWARD} to welcome
+	 * page. If new password is incorrect or current user does not exist or new password can
+	 * not be changed, method will return back client or admin to previous page with
+	 * according information. Otherwise method will change password of current user and
+	 * send him by {@link by.epam.hotel.util.type.RouterType REDIRECT} to page with 
+	 * successfull change information.
+	 */
 	@Override
 	public Router execute(HttpServletRequest request) throws CommandException {
 		Router router = new Router();

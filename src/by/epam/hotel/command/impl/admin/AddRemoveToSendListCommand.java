@@ -26,10 +26,10 @@ import by.epam.hotel.util.type.RouterType;
 public class AddRemoveToSendListCommand implements ActionCommand{
 
 	/**
-	 * If user's role equals {@link by.epam.hotel.util.type.RoleType#ADMIN ADMIN} method adds or 
-	 * removes specified customer email to(from) send list and return admin by
+	 * If user's role equals to {@link by.epam.hotel.util.type.RoleType#ADMIN ADMIN} method will add or 
+	 * remove specified customer email to(from) send list and return admin by
 	 * {@link by.epam.hotel.util.type.RouterType REDIRECT} to page with all customer emails.
-	 * Otherwise method  returns user by {@link by.epam.hotel.util.type.RouterType FORWARD} to welcome page.
+	 * Otherwise method will return user by {@link by.epam.hotel.util.type.RouterType FORWARD} to welcome page.
 	 */
 	@Override
 	public Router execute(HttpServletRequest request){

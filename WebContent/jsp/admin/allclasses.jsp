@@ -119,7 +119,7 @@
 	<hr/>
 	<form action="${pageContext.request.contextPath}/controller"
 		method="post">
-		<input type="hidden" name="command" value="back_to_admin_classes" />
+		<input type="hidden" name="command" value="to_admin_classes" />
 		<input type="submit" value="<fmt:message key="backbutton" />" size="20" />
 	</form>
 </body>

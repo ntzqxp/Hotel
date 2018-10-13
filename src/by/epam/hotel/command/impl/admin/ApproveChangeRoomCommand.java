@@ -35,7 +35,7 @@ import by.epam.hotel.util.validator.RoomValidator;
 public class ApproveChangeRoomCommand implements ActionCommand{
 	
 	/**
-	 * If user's role does not equal {@link by.epam.hotel.util.type.RoleType#ADMIN ADMIN} 
+	 * If user's role does not equal to {@link by.epam.hotel.util.type.RoleType#ADMIN ADMIN} 
 	 * method  will return user by {@link by.epam.hotel.util.type.RouterType FORWARD} to welcome page.
 	 * If parameters: capacity and price are invalid or if the room with specified parameters 
 	 * cannot be updated, method will return user by 

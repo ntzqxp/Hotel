@@ -17,13 +17,18 @@ import by.epam.hotel.util.type.RouterType;
 
 /**
  * This class is an implementation of a {@link by.epam.hotel.command.ActionCommand ActionCommand} interface 
- * and is used to send specified order to page of its cancel approvement.
+ * and is used to send specified order to page confirming its cancellation.
  * 
  * 
  * @author Evgeniy Moiseyenko
  */
 public class CancelOrderAdminCommand implements ActionCommand {
 	
+	/**
+	 * If user's role equals to {@link by.epam.hotel.util.type.RoleType#ADMIN ADMIN} method will
+	 * send specified order to page confirming its cancellation.
+	 * Otherwise method will return user by {@link by.epam.hotel.util.type.RouterType FORWARD} to welcome page.
+	 */
 	@Override
 	public Router execute(HttpServletRequest request) throws CommandException {
 		Router router = new Router();

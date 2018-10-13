@@ -31,7 +31,7 @@ import by.epam.hotel.util.validator.ClientValidator;
 public class ApproveChangeNationalityCommand implements ActionCommand{
 	
 	/**
-	 * If user's role does not equal {@link by.epam.hotel.util.type.RoleType#ADMIN ADMIN} 
+	 * If user's role does not equal to {@link by.epam.hotel.util.type.RoleType#ADMIN ADMIN} 
 	 * method  will return user by {@link by.epam.hotel.util.type.RouterType FORWARD} to welcome page.
 	 * If parameter: country is invalid or if the nationality with specified parameter 
 	 * cannot be updated, method will return user by 

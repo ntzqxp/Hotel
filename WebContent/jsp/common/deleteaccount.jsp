@@ -35,7 +35,7 @@
 	<hr/>
 	<form action="${pageContext.request.contextPath}/controller"
 		method="post">
-		<input type="hidden" name="command" value="back_to_change_personal_data" />
+		<input type="hidden" name="command" value="to_change_personal_data" />
 		<input type="submit" value="<fmt:message key="backbutton" />" size="20" />
 	</form>
 </body>

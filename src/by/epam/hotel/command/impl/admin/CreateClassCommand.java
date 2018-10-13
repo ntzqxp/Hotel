@@ -19,8 +19,24 @@ import by.epam.hotel.util.type.RoleType;
 import by.epam.hotel.util.type.RouterType;
 import by.epam.hotel.util.validator.RoomValidator;
 
+/**
+ * This class is an implementation of a {@link by.epam.hotel.command.ActionCommand ActionCommand} interface 
+ * and is used to creation of new room class.
+ * 
+ * 
+ * @author Evgeniy Moiseyenko
+ */
 public class CreateClassCommand implements ActionCommand{
 	
+	/**
+	 * If user's role does not equal to {@link by.epam.hotel.util.type.RoleType#ADMIN ADMIN} 
+	 * method  will return user by {@link by.epam.hotel.util.type.RouterType FORWARD} to welcome page.
+	 * If parameter: new class id is invalid or if it cannot be created, method will return user by 
+	 * {@link by.epam.hotel.util.type.RouterType FORWARD} to previous page.
+	 * Otherwise method will create new class id and send admin by
+	 * {@link by.epam.hotel.util.type.RouterType REDIRECT} to page with message of successfull
+	 * creation.
+	 */
 	@Override
 	public Router execute(HttpServletRequest request) throws CommandException {
 		Router router = new Router();
