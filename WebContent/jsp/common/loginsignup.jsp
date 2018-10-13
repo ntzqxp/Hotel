@@ -19,7 +19,6 @@
 				<input class="btn btn-sm btn-primary btn-block btn-outline-primary" type="submit" value="<fmt:message key="signup" />" size="20" />
 			</form>
 
-
 		</c:when>
 		<c:otherwise>
 			${sessionData.login}

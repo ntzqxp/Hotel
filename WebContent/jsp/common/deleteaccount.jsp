@@ -7,6 +7,10 @@
 <html>
 <head>
 <title><fmt:message key="title" /></title>
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/bootstrap.css">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
 <jsp:include page="/locale" />

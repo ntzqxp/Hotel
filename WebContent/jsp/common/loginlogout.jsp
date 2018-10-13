@@ -11,8 +11,9 @@
 			<td>
 				<form action="${pageContext.request.contextPath}/controller"
 					method="post">
-					<input type="hidden" name="command" value="logout" /> <input
-						type="submit" value="<fmt:message key="logout" />" />
+					<input type="hidden" name="command" value="logout" />
+					<input class="btn btn-sm btn-primary btn-block" type="submit"
+						value="<fmt:message key="logout" />" />
 				</form>
 			</td>
 		</tr>

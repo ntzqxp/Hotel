@@ -3,14 +3,23 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+	<div class="collapse navbar-collapse justify-content-md">
+		<div class="btn btn-dark">
+			<fmt:message key="hotelinfo" />
+		</div>
+		<div class="btn btn-dark">
+			<fmt:message key="contacts" />
+		</div>
+	</div>
 	<div class="collapse navbar-collapse justify-content-md-end">
 		<form action="${pageContext.request.contextPath}/controller"
-			method="post">
+			method="post" style="vertical-align: middle;">
 			<input type="hidden" name="locale" value="English" />
 			<input type="hidden" name="command" value="change_locale" />
 			<input type="hidden" name="jsppath"
 				value="${pageContext.request.requestURI }" />
-			<input class="btn btn-dark btn-primary btn-block" type="submit" value="English" size="20" />
+			<input class="btn btn-dark btn-primary btn-block" type="submit"
+				value="English" />
 		</form>
 		<form action="${pageContext.request.contextPath}/controller"
 			method="post">
@@ -18,7 +27,8 @@
 			<input type="hidden" name="command" value="change_locale" />
 			<input type="hidden" name="jsppath"
 				value="${pageContext.request.requestURI }" />
-			<input class="btn btn-dark btn-primary btn-block" type="submit" value="Русский" size="20" />
+			<input class="btn btn-dark btn-primary btn-block" type="submit"
+				value="Русский" />
 		</form>
 	</div>
 </nav>
