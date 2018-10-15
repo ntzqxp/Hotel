@@ -9,6 +9,17 @@ import org.testng.annotations.Test;
 public class RoomValidatorTest {
 
 	//test valid currency
+	@Test(dataProvider = "validCurrencies")
+	public void validateCurrencyPositiveTest (String validCurrency) {
+		assertTrue(RoomValidator.validateCurrency(validCurrency));
+	}
+	
+	//test invalid currency
+	@Test(dataProvider = "invalidCurrencies")
+	public void validateCurrencyNegativeTest (String invalidCurrency) {
+		assertFalse(RoomValidator.validateCurrency(invalidCurrency));
+	}
+	
 	@DataProvider
 	public Object[][] validCurrencies() {
 		return new Object[][] { 
@@ -17,13 +28,7 @@ public class RoomValidatorTest {
 			new Object[] { "1234567891.12" },
 			};
 	}
-
-	@Test(dataProvider = "validCurrencies")
-	public void validateCurrencyPositiveTest (String validCurrency) {
-		assertTrue(RoomValidator.validateCurrency(validCurrency));
-	}
 	
-	//test invalid currency
 	@DataProvider
 	public Object[][] invalidCurrencies() {
 		return new Object[][] { 
@@ -31,10 +36,5 @@ public class RoomValidatorTest {
 			new Object[] { "12.333" },
 			new Object[] { "12:33" }, 
 			};
-	}
-	
-	@Test(dataProvider = "invalidCurrencies")
-	public void validateCurrencyNegativeTest (String invalidCurrency) {
-		assertFalse(RoomValidator.validateCurrency(invalidCurrency));
 	}
 }

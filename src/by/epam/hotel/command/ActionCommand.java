@@ -21,7 +21,7 @@ public interface ActionCommand {
 	 * @return {@link by.epam.hotel.entity.Router Router} instance 
 	 * with {@link java.lang.String String} path page 
 	 * and {@link by.epam.hotel.util.type.RouterType RouterType}
-	 * @throws CommandException if method gets {@link by.epam.hotel.exception.ServiceException ServiceException}
+	 * @throws CommandException if method has catched {@link by.epam.hotel.exception.ServiceException ServiceException}
 	 */
 	Router execute(HttpServletRequest request) throws CommandException;
 }

@@ -59,6 +59,7 @@ import by.epam.hotel.command.impl.common.ChangePasswordCommand;
 import by.epam.hotel.command.impl.common.CheckKeyAndSignUpCommand;
 import by.epam.hotel.command.impl.common.DeleteAccountCommand;
 import by.epam.hotel.command.impl.common.ErrorBackCommand;
+import by.epam.hotel.command.impl.common.HotelInfoCommand;
 import by.epam.hotel.command.impl.common.LoginBackCommand;
 import by.epam.hotel.command.impl.common.LoginCommand;
 import by.epam.hotel.command.impl.common.LogoutCommand;
@@ -147,7 +148,8 @@ public enum CommandType {
 	SUBJECT_TEXT_SEND(new ToSubjectTextSendCommand()), 
 	SEND_MESSAGE(new SendMessageCommand()), 
 	BACK_TO_ALL_EMAILS(new BackToAllEmailsCommand()),
-	ERROR_BACK(new ErrorBackCommand());
+	ERROR_BACK(new ErrorBackCommand()),
+	HOTEL_INFO(new HotelInfoCommand());
 	
 	
 	CommandType(ActionCommand command) {

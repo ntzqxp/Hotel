@@ -92,5 +92,6 @@ public interface PropertyConstant {
 	String PAGE_CONFIRMATION_EMAIL = "path.page.confirmationemail";
 	String MESSAGE_SEND_CONFIRMATION_EMAIL_ERROR = "message.sendconfirmationemailerror";
 	String MESSAGE_KEY_CONFIRMATION_ERROR = "message.keyconfirmationerror";
+	String PAGE_HOTEL_INFO = "path.page.hotelinfo";
 
 }

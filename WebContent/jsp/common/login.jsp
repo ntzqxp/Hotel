@@ -42,7 +42,7 @@
 						<span class="input-group-text" id="basic-addon1"><fmt:message
 								key="password" /></span>
 					</div>
-					<input type="text" class="form-control" name="password"
+					<input type="password" class="form-control" name="password"
 						autocomplete="off" aria-describedby="basic-addon1">
 				</div>
 
@@ -59,7 +59,7 @@
 				method="post">
 				<input type="hidden" name="command" value="login_back" />
 				<input class="btn btn-sm btn-primary btn-block btn-outline-primary"
-					type="submit" value=<fmt:message key="backbutton" /> />
+					type="submit" value="<fmt:message key="backbutton" />" />
 			</form>
 		</div>
 	</div>

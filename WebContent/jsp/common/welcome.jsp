@@ -25,6 +25,15 @@
 	<div class="container-fluid">
 		<jsp:include page="loginsignup.jsp" />
 	</div>
+	<br />
+	<div class="btn btn-dark">
+		<form action="${pageContext.request.contextPath}/controller"
+			method="post">
+			<input type="hidden" name="command" value="hotel_info" /> <input
+				class="btn btn-sm btn-primary btn-block btn-outline-primary"
+				type="submit" value="<fmt:message key="hotelinfo" />" size="20" />
+		</form>
+	</div>
 	</main>
 </body>
 	</html>
