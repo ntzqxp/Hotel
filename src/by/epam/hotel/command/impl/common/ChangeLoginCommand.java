@@ -51,7 +51,7 @@ public class ChangeLoginCommand implements ActionCommand {
 			if (AccountValidator.validateLogin(newLogin)) {
 				try {
 					if (CommonService.checkLogin(currentLogin, tempPassword)) {
-						if (CommonService.changeLogin(newLogin, currentLogin, tempPassword)) {
+						if (CommonService.changeLogin(newLogin, currentLogin)) {
 							sessionData.setLogin(newLogin);
 							page = ConfigurationManager.getProperty(PropertyConstant.PAGE_SUCCESS_CHANGE_LOGIN);
 							router.setType(RouterType.REDIRECT);

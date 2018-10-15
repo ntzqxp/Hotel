@@ -51,7 +51,7 @@ public class ChangePasswordCommand implements ActionCommand {
 			if (AccountValidator.validatePassword(newPassword)) {
 				try {
 					if (CommonService.checkLogin(currentLogin, oldPassword)) {
-						if (CommonService.changePassword(oldPassword, newPassword, currentLogin)) {
+						if (CommonService.changePassword(newPassword, currentLogin)) {
 							page = ConfigurationManager.getProperty(PropertyConstant.PAGE_SUCCESS_CHANGE_PASSWORD);
 							router.setType(RouterType.REDIRECT);
 						} else {
