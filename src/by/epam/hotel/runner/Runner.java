@@ -38,7 +38,7 @@ import by.epam.hotel.util.Encoder;
 public class Runner {
 	public static void main(String[] args) throws ParseException, ServiceException {
 		String login = "temp";
-		String password = "temp";
+		//String password = "temp";
 		String email = "temp@mail.ru";
 		AccountDao accountDao = new AccountDao();
 		OrderDao orderDao = new OrderDao();
@@ -48,9 +48,13 @@ public class Runner {
 
 		List<Room> rooms = null;
 		
+		for(int i = 1;i<51;i++) {
+			String user = "user"+i;
+			String password = Encoder.encodePassword(user, String.valueOf(i+2));
+			System.out.println("('"+ password +"' , '"+user+"' ,'"+user+"@epam.com' , 0),");
+		}
 		
-		
-		System.out.println(Encoder.encodePassword("admin", "1"));
+		//System.out.println(Encoder.encodePassword("admin", "1"));
 
 		/*NationalityDao nationalityDao = new NationalityDao();
 		try (TransactionHelper helper = new TransactionHelper()) {
