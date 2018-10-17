@@ -17,13 +17,14 @@
 <body>
 	<jsp:include page="/locale" />
 	<div class="container justify-content-center">
+		<div class="row justify-content-center">
+			<h2 class="std-text-color text-center">
+				<fmt:message key="hello" />
+			</h2>
+		</div>
 		<div class="row">
 			<div class="col-4"></div>
 			<div class="col">
-				<div class="std-text-color text-center">
-					<fmt:message key="hello" />
-				</div>
-				<br />
 				<form action="${pageContext.request.contextPath}/controller"
 					name="LoginForm" autocomplete="off" method="post">
 
@@ -31,8 +32,8 @@
 
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
-							<span class="input-group-text fixed-input-group" id="basic-addon1"><fmt:message
-									key="loginlabel" /></span>
+							<span class="input-group-text fixed-input-group"
+								id="basic-addon1"><fmt:message key="loginlabel" /></span>
 						</div>
 						<input type="text" class="form-control" name="login"
 							aria-describedby="basic-addon1">
@@ -40,17 +41,15 @@
 
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
-							<span class="input-group-text fixed-input-group" id="basic-addon1"><fmt:message
-									key="password" /></span>
+							<span class="input-group-text fixed-input-group"
+								id="basic-addon1"><fmt:message key="password" /></span>
 						</div>
 						<input type="password" class="form-control" name="password"
 							autocomplete="off" aria-describedby="basic-addon1">
 					</div>
 
 					<div class="text-danger text-center">${errorLoginPassMessage}</div>
-					</br>
-
-					<input type="submit" class="btn btn-lg btn-primary btn-block"
+					</br> <input type="submit" class="btn btn-lg btn-primary btn-block"
 						value="<fmt:message key="login" />" />
 				</form>
 				<form action="${pageContext.request.contextPath}/controller"
