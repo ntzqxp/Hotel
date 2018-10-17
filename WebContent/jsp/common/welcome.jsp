@@ -14,18 +14,14 @@
 	<title><fmt:message key="title" /></title>
 	</head>
 	<body class="text-center">
-
 		<jsp:include page="/locale" />
-
 		<main role="main" class="container-fluid justify-content-md-center">
 			<div class="container-fluid">
 				<div class="header-content">
 					<fmt:message key="message" />
 				</div>
 				<br />
-
 				<jsp:include page="loginsignup.jsp" />
-
 				<form action="${pageContext.request.contextPath}/controller"
 					method="post">
 					<input type="hidden" name="command" value="hotel_info" /> <input
