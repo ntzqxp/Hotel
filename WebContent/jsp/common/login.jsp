@@ -47,7 +47,7 @@
 							autocomplete="off" aria-describedby="basic-addon1">
 					</div>
 
-					<div class="std-text-color text-center">${errorLoginPassMessage}</div>
+					<div class="text-danger text-center">${errorLoginPassMessage}</div>
 					</br>
 
 					<input type="submit" class="btn btn-lg btn-primary btn-block"

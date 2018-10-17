@@ -1,8 +1,8 @@
-li{
+nav ul{
 	list-style-type: none;
 }
 
-ul{
+nav li{
 	margin-left: 0; 
 	padding-left: 0;
 }
@@ -20,10 +20,6 @@ body{
   overflow-y: auto;
 }
 
-/* .container-fluid{ */
-/* 	width: auto!important; */
-/* } */
-
 .navbar form{
 	margin:0px;
 	padding:0px;
@@ -31,10 +27,6 @@ body{
 
 .coordinates{
 	text-align: left;
-}
-
-.hotelBtn{
-	margin-top: 40px;
 }
 
 .std-text-color{

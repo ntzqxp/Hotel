@@ -16,13 +16,12 @@
 <body>
 	<jsp:include page="/locale" />
 	<div class="container justify-content-center">
+		<h2 class="row std-text-color justify-content-center">
+			<fmt:message key="message" />
+		</h2>
 		<div class="row">
-			<div class="col-4"></div>
+			<div class="col"></div>
 			<div class="col">
-				<div class="std-text-color text-center">
-					<fmt:message key="message" />
-				</div>
-				<br />
 				<jsp:include page="loginsignup.jsp" />
 				<form action="${pageContext.request.contextPath}/controller"
 					method="post">
@@ -31,7 +30,7 @@
 						type="submit" value="<fmt:message key="hotelinfo" />" size="20" />
 				</form>
 			</div>
-			<div class="col-4"></div>
+			<div class="col"></div>
 		</div>
 	</div>
 </body>

@@ -34,7 +34,7 @@
 							aria-describedby="basic-addon1">
 					</div>
 
-					<div class="std-text-color text-center">${errorLoginSignupMessage }</div>
+					<div class="text-danger text-center">${errorLoginSignupMessage }</div>
 
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
@@ -47,7 +47,7 @@
 							aria-describedby="basic-addon1">
 					</div>
 
-					<div class="std-text-color text-center">${errorEmailSignupMessage }</div>
+					<div class="text-danger text-center">${errorEmailSignupMessage }</div>
 
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
@@ -60,13 +60,13 @@
 							aria-describedby="basic-addon1">
 					</div>
 
-					<div class="std-text-color text-center">${errorPasswordSignupMessage }</div>
+					<div class="text-danger text-center">${errorPasswordSignupMessage }</div>
 
 					<input class="btn btn-lg btn-primary btn-block" type="submit"
 						value="<fmt:message key="createsubmit" />" />
 
-					<div class="std-text-color text-center">${errorSignupMessage }</div>
-					<div class="std-text-color text-center">${errorSendConfirmationEmailMessage }</div>
+					<div class="text-danger text-center">${errorSignupMessage }</div>
+					<div class="text-danger text-center">${errorSendConfirmationEmailMessage }</div>
 					
 				</form>
 				<form action="${pageContext.request.contextPath}/controller"
