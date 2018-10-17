@@ -32,7 +32,7 @@
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
 							<span class="input-group-text fixed-input-group" id="basic-addon1"><fmt:message
-									key="login" /></span>
+									key="loginlabel" /></span>
 						</div>
 						<input type="text" class="form-control" name="login"
 							aria-describedby="basic-addon1">

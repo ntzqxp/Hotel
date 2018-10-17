@@ -24,11 +24,10 @@
 				</div>
 				<br />
 				<jsp:include page="loginsignup.jsp" />
-				<br />
 				<form action="${pageContext.request.contextPath}/controller"
 					method="post">
 					<input type="hidden" name="command" value="hotel_info" /> <input
-						class="btn btn-sm btn-primary btn-block btn-outline-primary"
+						class="btn btn-primary btn-block btn-outline-primary"
 						type="submit" value="<fmt:message key="hotelinfo" />" size="20" />
 				</form>
 			</div>
