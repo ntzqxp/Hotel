@@ -1,5 +1,7 @@
 package by.epam.hotel.runner;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -33,10 +35,11 @@ import by.epam.hotel.entity.Order;
 import by.epam.hotel.entity.Room;
 import by.epam.hotel.exception.DaoException;
 import by.epam.hotel.exception.ServiceException;
+import by.epam.hotel.pool.ConnectionPool;
 import by.epam.hotel.util.Encoder;
 
 public class Runner {
-	public static void main(String[] args) throws ParseException, ServiceException {
+	public static void main(String[] args) throws ParseException, ServiceException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, CloneNotSupportedException {
 		String login = "temp";
 		//String password = "temp";
 		String email = "temp@mail.ru";
@@ -45,15 +48,16 @@ public class Runner {
 		NationalityDao nationDao = new NationalityDao();
 		RoomDao roomDao = new RoomDao();
 		BankAccountDao bankdao = new BankAccountDao();
-
-		List<Room> rooms = null;
 		
-		for(int i = 1;i<51;i++) {
-			String user = "user"+i;
-			String password = Encoder.encodePassword(user, String.valueOf(i+2));
-			System.out.println("('"+ password +"' , '"+user+"' ,'"+user+"@epam.com' , 0),");
-		}
 		
+        
+        for(int i=0;i<11;i++) {
+        	System.out.println("geton from conn pool");
+        	ConnectionPool.getInstance().getConnection();
+        }
+         
+       
+        ConnectionPool.getInstance().clone();
 		//System.out.println(Encoder.encodePassword("admin", "1"));
 
 		/*NationalityDao nationalityDao = new NationalityDao();
