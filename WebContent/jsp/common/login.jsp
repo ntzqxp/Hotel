@@ -4,61 +4,65 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <fmt:setLocale value="${sessionData.locale}" scope="session" />
 <fmt:bundle basename="resource.i18n.interface" prefix="login.">
-<html>
-	<head>
-	<title><fmt:message key="title" /></title>
-	
-	<link rel="stylesheet" type="text/css"
-		href="${pageContext.request.contextPath}/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css"
-		href="${pageContext.request.contextPath}/css/style.css">
-	
-	</head>
-	<body>
-		<jsp:include page="/locale" />
-		<div class="container-fluid justify-content-md-center">
-			<div class="header-content">
-				<fmt:message key="hello" />
-			</div>
-			<br/>
-			<div class="column justify-content-center">
+	<html>
+<head>
+<title><fmt:message key="title" /></title>
+
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/bootstrap.css">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/style.css">
+
+</head>
+<body>
+	<jsp:include page="/locale" />
+	<div class="container justify-content-center">
+		<div class="row">
+			<div class="col-4"></div>
+			<div class="col">
+				<div class="std-text-color text-center">
+					<fmt:message key="hello" />
+				</div>
+				<br />
 				<form action="${pageContext.request.contextPath}/controller"
 					name="LoginForm" autocomplete="off" method="post">
-	
+
 					<input type="hidden" name="command" value="login" />
-	
+
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
-							<span class="input-group-text login-input" id="basic-addon1"><fmt:message
+							<span class="input-group-text fixed-input-group" id="basic-addon1"><fmt:message
 									key="login" /></span>
 						</div>
 						<input type="text" class="form-control" name="login"
 							aria-describedby="basic-addon1">
 					</div>
-	
+
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
-							<span class="input-group-text login-input" id="basic-addon1"><fmt:message
+							<span class="input-group-text fixed-input-group" id="basic-addon1"><fmt:message
 									key="password" /></span>
 						</div>
 						<input type="password" class="form-control" name="password"
 							autocomplete="off" aria-describedby="basic-addon1">
 					</div>
-	
-					<div class="header-content">${errorLoginPassMessage}</div>
-	
-				    <input type="submit"
-						class="btn btn-lg btn-primary btn-block"
+
+					<div class="std-text-color text-center">${errorLoginPassMessage}</div>
+					</br>
+
+					<input type="submit" class="btn btn-lg btn-primary btn-block"
 						value="<fmt:message key="login" />" />
 				</form>
 				<form action="${pageContext.request.contextPath}/controller"
 					method="post">
 					<input type="hidden" name="command" value="login_back" /> <input
-						class="btn btn btn-block btn-outline-primary"
-						type="submit" value="<fmt:message key="backbutton" />" />
+						class="btn btn btn-block btn-outline-primary" type="submit"
+						value="<fmt:message key="backbutton" />" />
 				</form>
 			</div>
-		</div>	
-	</body>
-</html>
+			<div class="col-4"></div>
+		</div>
+	</div>
+</body>
+	</html>
 </fmt:bundle>

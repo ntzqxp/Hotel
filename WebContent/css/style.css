@@ -20,9 +20,9 @@ body{
   overflow-y: auto;
 }
 
-.container-fluid{
-	width: auto!important;
-}
+/* .container-fluid{ */
+/* 	width: auto!important; */
+/* } */
 
 .navbar form{
 	margin:0px;
@@ -37,10 +37,10 @@ body{
 	margin-top: 40px;
 }
 
-.header-content{
+.std-text-color{
 	color: #212529;
 }
 
-.login-input{
+.fixed-input-group{
 	width: 100px;
 }
