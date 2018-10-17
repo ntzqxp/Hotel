@@ -49,7 +49,7 @@
 					</div>
 
 					<div class="text-danger text-center">${errorLoginPassMessage}</div>
-					</br> <input type="submit" class="btn btn-lg btn-primary btn-block"
+					<br/> <input type="submit" class="btn btn-lg btn-primary btn-block"
 						value="<fmt:message key="login" />" />
 				</form>
 				<form action="${pageContext.request.contextPath}/controller"
