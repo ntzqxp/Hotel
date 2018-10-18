@@ -84,7 +84,7 @@
 					<input type="hidden" name="command" value="to_all_emails" /> <input
 						type="hidden" name="currentPage" value="1"> <input
 						type="hidden" name="recordsPerPage" value="10"> <input
-						class="btn btn-lg btn-primary btn-block " type="submit"
+						class="btn btn-lg btn-primary btn-block" type="submit"
 						value="<fmt:message key="sendmessage" />" />
 				</form>
 			</div>

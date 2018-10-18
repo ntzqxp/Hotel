@@ -20,25 +20,28 @@
 		<jsp:include page="/loginlogout" />
 		<div class="row justify-content-center">
 			<div class="col">
-				<table class="table std-text-color">
-					<th scope="col std-text-color"><fmt:message key="clientsmsg" /></th>
-					<c:forEach var="client" items="${sessionData.clients }"
-						varStatus="status">
-						<tr>
-							<td><c:url value="/controller" var="clientsURL">
-									<c:param name="clientIndex" value="${status.count}" />
-									<c:param name="command" value="fill_order_form" />
-								</c:url> <a href="${clientsURL}"> ${client.firstName}
-									${client.lastName} ${client.passport} (${client.nationality}) </a></td>
-						</tr>
-					</c:forEach>
-				</table>
+				<div class="table-wrapper-scroll-y">
+					<table class="table std-text-color">
+						<th scope="col"><fmt:message key="clientsmsg" /></th>
+						<c:forEach var="client" items="${sessionData.clients }"
+							varStatus="status">
+							<tr>
+								<td><c:url value="/controller" var="clientsURL">
+										<c:param name="clientIndex" value="${status.count}" />
+										<c:param name="command" value="fill_order_form" />
+									</c:url> <a href="${clientsURL}"> ${client.firstName}
+										${client.lastName} ${client.passport} (${client.nationality})
+								</a></td>
+							</tr>
+						</c:forEach>
+					</table>
+				</div>
 			</div>
 			<div class="col std-text-color">
 				<form action="${pageContext.request.contextPath}/controller"
 					method="post">
 					<input type="hidden" name="command" value="find_room" />
-					<table class="table std-text-color">
+					<table class="table table-sm std-text-color">
 						<tr>
 							<td valign="top"><fmt:message key="fname" /></td>
 							<td valign="top"><input class="form-control" type="text"
